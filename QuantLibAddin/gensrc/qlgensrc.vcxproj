@@ -167,6 +167,9 @@
     <Xml Include="metadata\functions\calibrationhelpers.xml">
       <SubType>Designer</SubType>
     </Xml>
+    <Xml Include="metadata\functions\credit.xml">
+      <SubType>Designer</SubType>
+    </Xml>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
