@@ -34,7 +34,6 @@
 #include <ql/math/interpolations/loginterpolation.hpp>
 #include <ql/pricingengines/credit/midpointcdsengine.hpp>
 
-#include <ql/experimental/credit/riskybond.hpp>
 #include <ql/experimental/credit/syntheticcdo.hpp>
 #include <ql/experimental/credit/midpointcdoengine.hpp>
 #include <ql/experimental/credit/nthtodefault.hpp>
@@ -325,33 +324,6 @@ namespace QuantLibAddin {
                QuantLib::PiecewiseYieldCurve<QuantLib::Discount,QuantLib::LogLinear>(referenceDate, helpers, dayCounter));
     }
 
-
-
-    RiskyFixedBond::RiskyFixedBond(
-        const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-        std::string name,
-        QuantLib::Currency ccy,
-        QuantLib::Real recoveryRate,
-        QuantLib::Handle<QuantLib::DefaultProbabilityTermStructure> defaultTS,
-        const boost::shared_ptr<QuantLib::Schedule>& schedule,
-        QuantLib::Real rate,
-        QuantLib::DayCounter dayCounter,
-        QuantLib::BusinessDayConvention paymentConvention,
-        QuantLib::Real notional,
-        QuantLib::Handle<QuantLib::YieldTermStructure> yieldTS,
-        QuantLib::Date npvDate, // unused by now
-        bool permanent)
-    : Instrument(properties, permanent) {
-
-        std::vector<QuantLib::Real> notionals(1,notional);
-
-        libraryObject_ = boost::shared_ptr<QuantLib::RiskyFixedBond>(
-            new QuantLib::RiskyFixedBond(
-                    name,ccy,recoveryRate,defaultTS,*schedule,rate,dayCounter,
-                    paymentConvention,notionals,yieldTS///, npvDate
-                                       ));
-
-    }
 
 
     SyntheticCDO::SyntheticCDO(
