@@ -218,11 +218,11 @@
           <value>ADA_Engine</value>
           <libraryClass>QuantLib::AnalyticDigitalAmericanEngine</libraryClass>
         </EnumeratedClass>
-        <EnumeratedClass>
+		  <!--EnumeratedClass>
           <string>ADE</string>
           <value>ADE_Engine</value>
           <libraryClass>QuantLib::AnalyticDividendEuropeanEngine</libraryClass>
-        </EnumeratedClass>
+        </EnumeratedClass-->
         <EnumeratedClass>
           <string>ADGAPA</string>
           <value>ADGAPA_Engine</value>

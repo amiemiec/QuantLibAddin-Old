@@ -10,6 +10,7 @@
 
     <include>ql/indexes/swapindex.hpp</include>
     <include>ql/termstructures/volatility/swaption/swaptionvolcube.hpp</include>
+	<include>ql/termstructures/volatility/swaption/interpolatedswaptionvolatilitycube.hpp</include>
   </serializationIncludes>
   <addinIncludes>
     <include>qlo/handleimpl.hpp</include>
@@ -20,6 +21,7 @@
 
     <include>ql/indexes/swapindex.hpp</include>
     <include>ql/termstructures/volatility/swaption/swaptionvolcube.hpp</include>
+	<include>ql/termstructures/volatility/swaption/interpolatedswaptionvolatilitycube.hpp</include>
   </addinIncludes>
   <copyright>
     Copyright (C) 2006, 2007, 2008 Ferdinando Ametrano
@@ -499,61 +501,6 @@
       </ReturnValue>
     </Member>
 
-    <!-- SwaptionVolCube2 constructors -->
-    <Constructor name='qlSwaptionVolCube2'>
-      <libraryFunction>SwaptionVolCube2</libraryFunction>
-      <SupportedPlatforms>
-        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
-        <SupportedPlatform name='Excel'/>
-        <SupportedPlatform name='Cpp'/>
-      </SupportedPlatforms>
-      <ParameterList>
-        <Parameters>
-          <Parameter name='AtmVolStructure'>
-            <type>QuantLib::SwaptionVolatilityStructure</type>
-            <superType>libToHandle</superType>
-            <tensorRank>scalar</tensorRank>
-            <description>At-the-money volatility structure.</description>
-          </Parameter>
-          <Parameter name='OptionTenor' exampleValue ='5y'>
-            <type>QuantLib::Period</type>
-            <tensorRank>vector</tensorRank>
-            <description>smile cube's expiries as periods.</description>
-          </Parameter>
-          <Parameter name='SwapTenor' exampleValue ='2y'>
-            <type>QuantLib::Period</type>
-            <tensorRank>vector</tensorRank>
-            <description>smile cube's underlying swap lengths.</description>
-          </Parameter>
-          <Parameter name='StrikeSpreads' exampleValue ='.01, .02, .03'>
-            <type>QuantLib::Spread</type>
-            <tensorRank>vector</tensorRank>
-            <description>smile cube's strike spreads over the ATM strike rate.</description>
-          </Parameter>
-          <Parameter name='SpreadVols' >
-            <type>QuantLib::Quote</type>
-            <superType>libToHandle</superType>
-            <tensorRank>matrix</tensorRank>
-            <description>matrix of spread vol quotes.</description>
-          </Parameter>
-          <Parameter name='SwapIndexBase'>
-            <type>QuantLib::SwapIndex</type>
-            <tensorRank>scalar</tensorRank>
-            <description>Base SwapIndex object ID.</description>
-          </Parameter>
-          <Parameter name='ShortSwapIndexBase'>
-            <type>QuantLib::SwapIndex</type>
-            <tensorRank>scalar</tensorRank>
-            <description>Short base SwapIndex object ID.</description>
-          </Parameter>
-          <Parameter name='VegaWeightedSmileFit' default='true'>
-            <type>bool</type>
-            <tensorRank>scalar</tensorRank>
-            <description>if TRUE the smile fit is weighted using options' vega.</description>
-          </Parameter>
-        </Parameters>
-      </ParameterList>
-    </Constructor>
 
     <!-- SwaptionVolatilityCube interface -->
     <Member name='qlSwaptionVTSatmStrike' type='QuantLib::SwaptionVolatilityCube' superType='libraryTermStructure' loopParameter='OptionDate'>
@@ -612,9 +559,9 @@
       </ReturnValue>
     </Member>
 
-    <!-- SwaptionVolCube1 constructors -->
-    <Constructor name='qlSwaptionVolCube1'>
-      <libraryFunction>SwaptionVolCube1</libraryFunction>
+    <!-- SwaptionVolCube constructors -->
+    <Constructor name='qlSwaptionVolCube'>
+      <libraryFunction>InterpolatedSwaptionVolCube</libraryFunction>
       <SupportedPlatforms>
         <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
         <SupportedPlatform name='Excel'/>
@@ -644,7 +591,7 @@
             <tensorRank>vector</tensorRank>
             <description>smile cube's strike spreads over the ATM strike rate.</description>
           </Parameter>
-          <Parameter name='SpreadVols' >
+          <Parameter name='VolSpreads' >
             <type>QuantLib::Quote</type>
             <superType>libToHandle</superType>
             <tensorRank>matrix</tensorRank>
@@ -665,105 +612,10 @@
             <tensorRank>scalar</tensorRank>
             <description>if TRUE the smile fit is weighted using options' vega.</description>
           </Parameter>
-          <Parameter name='Guess'>
-            <type>QuantLib::Quote</type>
-            <superType>libToHandle</superType>
-            <tensorRank>matrix</tensorRank>
-            <description>matrix of parameters guess quotes.</description>
-          </Parameter>
-          <Parameter name='IsFixed' exampleValue ='FALSE, TRUE, FALSE, FALSE'>
-            <type>bool</type>
-            <tensorRank>vector</tensorRank>
-            <description>if TRUE parameter guess is not calibrated.</description>
-          </Parameter>
-          <Parameter name='IsAtmCalibrated' exampleValue ='FALSE'>
-            <type>bool</type>
-            <tensorRank>scalar</tensorRank>
-            <description>if TRUE the cube is calibrated to atm matrix .</description>
-          </Parameter>
-          <Parameter name='EndCriteria' default='""'>
-            <type>QuantLib::EndCriteria</type>
-            <tensorRank>scalar</tensorRank>
-            <description>EndCriteria object ID.</description>
-          </Parameter>
-          <Parameter name='MaxErrorTol' default='QuantLib::Null&lt;QuantLib::Real&gt;()'>
-            <type>double</type>
-            <tensorRank>scalar</tensorRank>
-            <description>max error tolerance.</description>
-          </Parameter>
-          <Parameter name='OptMethod' default='""'>
-            <type>QuantLib::OptimizationMethod</type>
-            <tensorRank>scalar</tensorRank>
-            <description>Optmization method object ID.</description>
-          </Parameter>
         </Parameters>
       </ParameterList>
     </Constructor>
 
-    <!-- SwaptionVolCube1 interface -->
-    <Member name='qlSparseSabrParameters' type='QuantLibAddin::SwaptionVolCube1'>
-      <description>returns results of Sabr calibration for the given SwaptionVolCube1 object.</description>
-      <libraryFunction>getSparseSabrParameters</libraryFunction>
-      <SupportedPlatforms>
-        <SupportedPlatform name='Excel'/>
-        <!--SupportedPlatform name='Cpp'/-->
-      </SupportedPlatforms>
-      <ParameterList>
-        <Parameters/>
-      </ParameterList>
-      <ReturnValue>
-        <type>any</type>
-        <tensorRank>matrix</tensorRank>
-      </ReturnValue>
-    </Member>
-
-    <Member name='qlDenseSabrParameters' type='QuantLibAddin::SwaptionVolCube1'>
-      <description>returns results of Sabr calibration for the given SwaptionVolCube1 object.</description>
-      <libraryFunction>getDenseSabrParameters</libraryFunction>
-      <SupportedPlatforms>
-        <SupportedPlatform name='Excel'/>
-        <!--SupportedPlatform name='Cpp'/-->
-      </SupportedPlatforms>
-      <ParameterList>
-        <Parameters/>
-      </ParameterList>
-      <ReturnValue>
-        <type>any</type>
-        <tensorRank>matrix</tensorRank>
-      </ReturnValue>
-    </Member>
-
-    <Member name='qlMarketVolCube' type='QuantLibAddin::SwaptionVolCube1'>
-      <description>returns the market volatility cube for the given SwaptionVolCube1 object.</description>
-      <libraryFunction>getMarketVolCube</libraryFunction>
-      <SupportedPlatforms>
-        <SupportedPlatform name='Excel'/>
-        <!--SupportedPlatform name='Cpp'/-->
-      </SupportedPlatforms>
-      <ParameterList>
-        <Parameters/>
-      </ParameterList>
-      <ReturnValue>
-        <type>any</type>
-        <tensorRank>matrix</tensorRank>
-      </ReturnValue>
-    </Member>
-
-    <Member name='qlVolCubeAtmCalibrated' type='QuantLibAddin::SwaptionVolCube1'>
-      <description>returns the volatility cube calibrated to ATM matrix for the given SwaptionVolCube1 object.</description>
-      <libraryFunction>getVolCubeAtmCalibrated</libraryFunction>
-      <SupportedPlatforms>
-        <SupportedPlatform name='Excel'/>
-        <!--SupportedPlatform name='Cpp'/-->
-      </SupportedPlatforms>
-      <ParameterList>
-        <Parameters/>
-      </ParameterList>
-      <ReturnValue>
-        <type>any</type>
-        <tensorRank>matrix</tensorRank>
-      </ReturnValue>
-    </Member>
 
     <!-- SmileSectionInteface constructors -->
     <Constructor name='qlSmileSectionByCube'>

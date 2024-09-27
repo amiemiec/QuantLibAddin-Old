@@ -202,8 +202,9 @@
     <DataType defaultSuperType='libraryTermStructure'>QuantLib::SwaptionVolatilityStructure</DataType>
     <DataType defaultSuperType='libraryTermStructure'>QuantLib::SwaptionVolatilityDiscrete</DataType>
     <DataType defaultSuperType='libraryTermStructure'>QuantLib::SwaptionVolatilityCube</DataType>
+	<DataType defaultSuperType='libraryTermStructure'>QuantLib::InterpolatedSwaptionVolatilityCube</DataType>
 
-    <DataType defaultSuperType='libraryTermStructure'>QuantLibAddin::BaseCorrelationTermStructure</DataType>
+	  <DataType defaultSuperType='libraryTermStructure'>QuantLibAddin::BaseCorrelationTermStructure</DataType>
 
     <DataType defaultSuperType='libraryType' nativeType='double'>QuantLib::Array</DataType>
     <DataType defaultSuperType='libraryType' nativeType='double'>QuantLib::Matrix</DataType>
@@ -273,7 +274,7 @@
 
     <DataType defaultSuperType='objectQuote'>QuantLibAddin::SimpleQuote</DataType>
 
-    <DataType defaultSuperType='objectTermStructure'>QuantLibAddin::SwaptionVolCube1</DataType>
+    <DataType defaultSuperType='objectTermStructure'>QuantLibAddin::SwaptionVolCube</DataType>
     <DataType defaultSuperType='objectTermStructure'>QuantLibAddin::SwaptionVolatilityMatrix</DataType>
 
     <DataType defaultSuperType='underlyingClass'>QuantLib::BrownianGeneratorFactory</DataType>

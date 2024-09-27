@@ -25,7 +25,7 @@
 #include <ql/instruments/dividendvanillaoption.hpp>
 
 namespace QuantLibAddin {
-
+/*
     DividendVanillaOption::DividendVanillaOption(
             const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
             const boost::shared_ptr<QuantLib::StrikedTypePayoff>& payoff,
@@ -40,5 +40,5 @@ namespace QuantLibAddin {
                                             dividendDates,
                                             dividends));
     }
-
+*/
 }

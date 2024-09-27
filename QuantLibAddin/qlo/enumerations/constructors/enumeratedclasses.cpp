@@ -117,12 +117,12 @@ namespace QuantLibAddin {
         const boost::shared_ptr<QuantLib::GeneralizedBlackScholesProcess>& process) {
         return boost::shared_ptr<QuantLib::PricingEngine> (
             new QuantLib::AnalyticDigitalAmericanEngine(process));
-    }
+    }/*
     boost::shared_ptr<QuantLib::PricingEngine> ADE_Engine(
         const boost::shared_ptr<QuantLib::GeneralizedBlackScholesProcess>& process) {
         return boost::shared_ptr<QuantLib::PricingEngine> (
             new QuantLib::AnalyticDividendEuropeanEngine(process));
-    }
+    }*/
     boost::shared_ptr<QuantLib::PricingEngine> ADGAPA_Engine(
         const boost::shared_ptr<QuantLib::GeneralizedBlackScholesProcess>& process) {
         return boost::shared_ptr<QuantLib::PricingEngine> (

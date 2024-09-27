@@ -154,10 +154,10 @@
       </ParameterList>
     </Constructor>
 
-    <Constructor name='qlDividendVanillaOption'>
+	  <!--Constructor name='qlDividendVanillaOption'>
       <libraryFunction>DividendVanillaOption</libraryFunction>
       <SupportedPlatforms>
-        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <!**SupportedPlatform name='Excel' calcInWizard='false'/**>
         <SupportedPlatform name='Excel'/>
         <SupportedPlatform name='Cpp'/>
         <SupportedPlatform name='Calc'/>        
@@ -186,7 +186,7 @@
           </Parameter>
         </Parameters>
       </ParameterList>
-    </Constructor>
+    </Constructor-->
 
     <Constructor name='qlForwardVanillaOption'>
       <libraryFunction>ForwardVanillaOption</libraryFunction>

@@ -31,6 +31,7 @@
 namespace QuantLib {
     class Calendar;
     class SwaptionVolatilityCube;
+    class SwaptionVolatilityStructure;
     class SwapIndex;
     class Matrix;
     class Period;
@@ -73,9 +74,11 @@ namespace QuantLibAddin {
                                  const QuantLib::Period& p);
     };
     
-    class SwaptionVolCube2 : public SwaptionVolatilityCube {
+    
+    
+    class InterpolatedSwaptionVolCube : public SwaptionVolatilityStructure {
       public:
-        SwaptionVolCube2(
+        InterpolatedSwaptionVolCube(
             const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
             const QuantLib::Handle<QuantLib::SwaptionVolatilityStructure>& atmVol,
             const std::vector<QuantLib::Period>& optionTenors,
@@ -86,36 +89,6 @@ namespace QuantLibAddin {
             const boost::shared_ptr<QuantLib::SwapIndex>& shortSwapIndexBase,
             bool vegaWeightedSmileFit,
             bool permanent);
-    };
-    
-    // The 2 functions below must declare their input parameters as pass by value rather
-    // than pass by reference to allow clients of these functions to pass temporary objects.
-    std::vector<std::vector<ObjectHandler::property_t> > getSabrParameters(QuantLib::Matrix sabrParameters);
-    std::vector<std::vector<ObjectHandler::property_t> > getVolCube(QuantLib::Matrix volCube);
-    
-    class SwaptionVolCube1 : public SwaptionVolatilityCube {
-      public:
-        SwaptionVolCube1(
-            const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-            const QuantLib::Handle<QuantLib::SwaptionVolatilityStructure>& atmVol,
-            const std::vector<QuantLib::Period>& optionTenors,
-            const std::vector<QuantLib::Period>& swapTenors,
-            const std::vector<QuantLib::Spread>& strikeSpreads,
-            const std::vector<std::vector<QuantLib::Handle<QuantLib::Quote> > >& volSpreads,
-            const boost::shared_ptr<QuantLib::SwapIndex>& swapIndexBase,
-            const boost::shared_ptr<QuantLib::SwapIndex>& shortSwapIndexBase,
-            bool vegaWeightedSmileFit,
-            const std::vector<std::vector<QuantLib::Handle<QuantLib::Quote> > >& parametersGuess,
-            const std::vector<bool>& isParameterFixed,
-            bool isAtmCalibrated,
-            const boost::shared_ptr<QuantLib::EndCriteria>& endCriteria,
-            QuantLib::Real maxErrorTolerance,
-            const boost::shared_ptr<QuantLib::OptimizationMethod>& optMethod,
-            bool permanent);
-        std::vector<std::vector<ObjectHandler::property_t> > getSparseSabrParameters();
-        std::vector<std::vector<ObjectHandler::property_t> > getDenseSabrParameters();
-        std::vector<std::vector<ObjectHandler::property_t> > getMarketVolCube();
-        std::vector<std::vector<ObjectHandler::property_t> > getVolCubeAtmCalibrated();
     };
 
     class SmileSectionByCube : public SmileSection {

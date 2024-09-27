@@ -30,7 +30,7 @@ namespace QuantLib {
 }
 
 namespace QuantLibAddin {
-
+/*
     class DividendVanillaOption : public OneAssetOption {
     public:
         DividendVanillaOption(
@@ -41,7 +41,7 @@ namespace QuantLibAddin {
             const std::vector<QuantLib::Real>& dividends,
             bool permanent);
     };
-
+*/
 }
 
 #endif
