@@ -1,18 +1,20 @@
 <root>
 
   <enumeratedTypeCopyright>
-    Copyright (C) 2006, 2007, 2008, 2014, 2015 Ferdinando Ametrano
-    Copyright (C) 2007 Marco Bianchetti
-    Copyright (C) 2005, 2006, 2007 Eric Ehlers
-    Copyright (C) 2006 Giorgio Facchinetti
-    Copyright (C) 2006 Chiara Fornarola
-    Copyright (C) 2006 Katiuscia Manzoni
-    Copyright (C) 2005 Plamen Neykov
-    Copyright (C) 2015 Maddalena Zanzi
-    Copyright (C) 2015 Riccardo Barone
-    Copyright (C) 2015 Paolo Mazzocchi
-    Copyright (C) 2016 Stefano Fondi
-    Copyright (C) 2022 Sebastian Schlenkrich
+	  Copyright (C) 2006, 2007, 2008, 2014, 2015 Ferdinando Ametrano
+	  Copyright (C) 2007 Marco Bianchetti
+	  Copyright (C) 2005, 2006, 2007 Eric Ehlers
+	  Copyright (C) 2006 Giorgio Facchinetti
+	  Copyright (C) 2006 Chiara Fornarola
+	  Copyright (C) 2006 Katiuscia Manzoni
+	  Copyright (C) 2005 Plamen Neykov
+	  Copyright (C) 2015 Maddalena Zanzi
+	  Copyright (C) 2015 Riccardo Barone
+	  Copyright (C) 2015 Paolo Mazzocchi
+	  Copyright (C) 2016 Stefano Fondi
+	  Copyright (C) 2022 Sebastian Schlenkrich
+	  Copyright (C) 2024 Andre Miemiec
+	  
   </enumeratedTypeCopyright>
 
   <EnumeratedTypeGroups>
@@ -2092,6 +2094,92 @@
       </EnumeratedTypes>
     </EnumeratedTypeGroup>
 
+	  
+	<EnumeratedTypeGroup type='QuantLib::DeltaVolQuote::DeltaType'>
+      <includeFile>oh/enumerations/typefactory.hpp</includeFile>
+      <constructor>true</constructor>
+      <EnumeratedTypes>
+        <EnumeratedType>
+          <string>Spot</string>
+          <value>QuantLib::DeltaVolQuote::DeltaType::Spot</value>
+        </EnumeratedType>
+		  <EnumeratedType>
+			  <string>Fwd</string>
+			  <value>QuantLib::DeltaVolQuote::DeltaType::Fwd</value>
+		  </EnumeratedType>
+		  <EnumeratedType>
+			  <string>PaSpot</string>
+			  <value>QuantLib::DeltaVolQuote::DeltaType::PaSpot</value>
+		  </EnumeratedType>
+		  <EnumeratedType>
+			  <string>PaFwd</string>
+			  <value>QuantLib::DeltaVolQuote::DeltaType::PaFwd</value>
+		  </EnumeratedType>
+      </EnumeratedTypes>
+    </EnumeratedTypeGroup>
+
+
+	<EnumeratedTypeGroup type='QuantLib::DeltaVolQuote::AtmType'>
+		<includeFile>oh/enumerations/typefactory.hpp</includeFile>
+		<constructor>true</constructor>
+		<EnumeratedTypes>
+			<EnumeratedType>
+				<string>AtmNull</string>
+				<value>QuantLib::DeltaVolQuote::AtmType::AtmNull</value>
+			</EnumeratedType>
+			<EnumeratedType>
+				<string>AtmSpot</string>
+				<value>QuantLib::DeltaVolQuote::AtmType::AtmSpot</value>
+			</EnumeratedType>
+			<EnumeratedType>
+				<string>AtmFwd</string>
+				<value>QuantLib::DeltaVolQuote::AtmType::AtmFwd</value>
+			</EnumeratedType>
+			<EnumeratedType>
+				<string>AtmDeltaNeutral</string>
+				<value>QuantLib::DeltaVolQuote::AtmType::AtmDeltaNeutral</value>
+			</EnumeratedType>
+						<EnumeratedType>
+				<string>AtmVegaMax</string>
+				<value>QuantLib::DeltaVolQuote::AtmType::AtmVegaMax</value>
+			</EnumeratedType>
+			<EnumeratedType>
+				<string>AtmGammaMax</string>
+				<value>QuantLib::DeltaVolQuote::AtmType::AtmGammaMax</value>
+			</EnumeratedType>
+			<EnumeratedType>
+				<string>AtmPutCall50</string>
+				<value>QuantLib::DeltaVolQuote::AtmType::AtmPutCall50</value>
+			</EnumeratedType>
+		</EnumeratedTypes>
+	</EnumeratedTypeGroup>
+
+	<EnumeratedTypeGroup type='QuantLib::InterpolatedSmileSection::InterpolationMethod'>
+		<includeFile>oh/enumerations/typefactory.hpp</includeFile>
+		<constructor>true</constructor>
+		<EnumeratedTypes>
+			<EnumeratedType>
+				<string>Linear</string>
+				<value>QuantLib::InterpolatedSmileSection::InterpolationMethod::Linear</value>
+			</EnumeratedType>
+			<EnumeratedType>
+				<string>NaturalCubic</string>
+				<value>QuantLib::InterpolatedSmileSection::InterpolationMethod::NaturalCubic</value>
+			</EnumeratedType>
+			<EnumeratedType>
+				<string>FinancialCubic</string>
+				<value>QuantLib::InterpolatedSmileSection::InterpolationMethod::FinancialCubic</value>
+			</EnumeratedType>
+			<EnumeratedType>
+				<string>CubicSpline</string>
+				<value>QuantLib::InterpolatedSmileSection::InterpolationMethod::CubicSpline</value>
+			</EnumeratedType>
+		</EnumeratedTypes>
+	</EnumeratedTypeGroup>
+
+
+	  
+	  
   </EnumeratedTypeGroups>
 
 </root>

@@ -1,0 +1,259 @@
+<Category name='fxvolstructure'>
+  <description>functions to construct and use FX VolatilityStructure objects.</description>
+  <displayName>FX Volatility Term Structures</displayName>
+  <xlFunctionWizardCategory>QuantLib - Financial</xlFunctionWizardCategory>
+  <serializationIncludes>
+    <include>qlo/conversions/coercetermstructure.hpp</include>
+	<include>qlo/fxvolstructure.hpp</include>
+	<include>ql/experimental/fx/deltavolquote.hpp</include>
+    <include>ql/termstructures/volatility/fx/blackvolsurfacedelta.hpp</include>
+  </serializationIncludes>
+  <addinIncludes>
+    <include>qlo/handleimpl.hpp</include>
+    <include>qlo/conversions/coercetermstructure.hpp</include>
+	<include>qlo/fxvolstructure.hpp</include>
+    <include>ql/experimental/fx/deltavolquote.hpp</include>
+    <include>ql/termstructures/volatility/fx/blackvolsurfacedelta.hpp</include>
+  </addinIncludes>
+  <copyright>
+    Copyright (C) 2024 Andre Miemiec
+  </copyright>
+  <Functions>
+
+  <Constructor name='qlFxVolatilitySurfaceDelta'>
+      <libraryFunction>BlackVolatilitySurfaceDelta</libraryFunction>
+      <SupportedPlatforms>
+	    <SupportedPlatform name='Excel'/>
+      </SupportedPlatforms>
+	  <ParameterList>
+	    <Parameters>
+			<Parameter name='ReferenceDate'>
+				<type>QuantLib::Date</type>
+				<tensorRank>scalar</tensorRank>
+				<description>Reference Date.</description>
+			</Parameter>
+			<Parameter name='Dates'>
+				<type>QuantLib::Date</type>
+				<tensorRank>vector</tensorRank>
+				<description>vector of dates.</description>
+			</Parameter>
+			<Parameter name='PutDeltas'>
+				<type>QuantLib::Real</type>
+				<tensorRank>vector</tensorRank>
+				<description>vector of put deltas.</description>
+			</Parameter>
+			<Parameter name='CallDeltas'>
+				<type>QuantLib::Real</type>
+				<tensorRank>vector</tensorRank>
+				<description>vector of call deltas.</description>
+			</Parameter>
+			<Parameter name='HasAtm' default='true'>
+				<type>bool</type>
+				<tensorRank>scalar</tensorRank>
+				<description>boolean if atm deltas are provided.</description>
+			</Parameter>
+			<Parameter name='Volatilities'>
+				<type>QuantLib::Matrix</type>
+				<tensorRank>matrix</tensorRank>
+				<description>vol quotes.</description>
+			</Parameter>
+			<Parameter name='DayCounter'>
+				<type>QuantLib::DayCounter</type>
+				<tensorRank>scalar</tensorRank>
+				<description>day counter.</description>
+			</Parameter>
+			<Parameter name='Calendar'>
+				<type>QuantLib::Calendar</type>
+				<tensorRank>scalar</tensorRank>
+				<description>calendar.</description>
+			</Parameter>
+			<Parameter name='Spot'>
+				<type>QuantLib::Quote</type>
+				<superType>libToHandle</superType>
+				<tensorRank>scalar</tensorRank>
+				<description>fx spot.</description>
+			</Parameter>
+			<Parameter name='DomesticYieldCurve'>
+				<type>QuantLib::YieldTermStructure</type>
+				<superType>libToHandle</superType>
+				<tensorRank>scalar</tensorRank>
+				<description>domestic discounting yield term structure object ID.</description>
+			</Parameter>
+			<Parameter name='ForeignYieldCurve'>
+				<type>QuantLib::YieldTermStructure</type>
+				<superType>libToHandle</superType>
+				<tensorRank>scalar</tensorRank>
+				<description>foreign discounting yield term structure object ID.</description>
+			</Parameter>
+			<Parameter name='DeltaTypes'>
+				<type>QuantLib::DeltaVolQuote::DeltaType</type>
+				<tensorRank>vector</tensorRank>
+				<description>front delta type.</description>
+			</Parameter>
+			<Parameter name='AtmTypes' default='"AtmDeltaNeutral"'>
+				<type>QuantLib::DeltaVolQuote::AtmType</type>
+				<tensorRank>vector</tensorRank>
+				<description>front delta type.</description>
+			</Parameter>
+			<Parameter name='SwitchTenor'>
+				<type>QuantLib::Period</type>
+				<tensorRank>scalar</tensorRank>
+				<description>switch tenor, default = 0d.</description>
+			</Parameter>
+			<Parameter name='InterpolationMethod' default='"Linear"'>
+				<type>QuantLib::InterpolatedSmileSection::InterpolationMethod</type>
+				<tensorRank>scalar</tensorRank>
+				<description>interpolation method.</description>
+			</Parameter>
+			<Parameter name='FlatExtrapolation' default='true'>
+				<type>bool</type>
+				<tensorRank>scalar</tensorRank>
+				<description>flat extrapolation.</description>
+			</Parameter>
+		</Parameters>
+      </ParameterList>
+    </Constructor>
+
+
+	  <!--Member name='qlFXDeltaVolatility' type='QuantLib::BlackVolatilitySurfaceDelta' superType='libraryTermStructure'>
+		  <description>Returns volatility from the given FX Volatility object.</description>
+		  <libraryFunction>blackVol</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='ExerciseDate'>
+					  <type>QuantLib::Date</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>expiry date.</description>
+				  </Parameter>
+				  <Parameter name='Strike' exampleValue ='0.04'>
+					  <type>QuantLib::Real</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>option strike.</description>
+				  </Parameter>
+				  <Parameter name='AllowExtrapolation' default='false'>
+					  <type>bool</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>Extrapolation Flag (TRUE allows extrapolation).</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>QuantLib::Volatility</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+	  </Member-->
+
+
+	  <!--Constructor name='qlBlackDeltaCalculator'>
+		  <libraryFunction>BlackDeltaCalculator</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='OptionType'>
+					  <type>QuantLib::Option::Type</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>Put or Call.</description>
+				  </Parameter>
+				  <Parameter name='DeltaType'>
+					  <type>QuantLib::DeltaVolQuote::DeltaType</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>delta type.</description>
+				  </Parameter>
+				  <Parameter name='Spot'>
+					  <type>QuantLib::Real</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>spot.</description>
+				  </Parameter>
+				  <Parameter name='DomesticDF'>
+					  <type>QuantLib::Real</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>domestic discounting factor.</description>
+				  </Parameter>
+				  <Parameter name='ForeignDF'>
+					  <type>QuantLib::Real</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>foreign discounting factor.</description>
+				  </Parameter>
+				  <Parameter name='StdDev'>
+					  <type>QuantLib::Real</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>standard deviation.</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+	  </Constructor-->
+
+
+	  <!--Member name='qlBlackDeltaCalculatorAtmStrike' type='QuantLib::BlackDeltaCalculator' superType='libraryTermStructure'>
+		  <description>Returns volatility from the given FX Volatility object.</description>
+		  <libraryFunction>atmStrike</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='AtmType'>
+					  <type>QuantLib::DeltaVolQuote::AtmType</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>atm type.</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>QuantLib::Real</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+	  </Member-->
+
+
+
+	  <!--Member name='qlBlackDeltaCalculatorDeltaFromStrike' type='QuantLib::BlackDeltaCalculator' superType='libraryTermStructure'>
+		  <description>Returns volatility from the given FX Volatility object.</description>
+		  <libraryFunction>deltaFromStrike</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='Strike'>
+					  <type>QuantLib::Real</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>strike.</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>QuantLib::Real</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+	  </Member-->
+
+	  <!--Member name='qlBlackDeltaCalculatorStrikeFromDelta' type='QuantLib::BlackDeltaCalculator' superType='libraryTermStructure'>
+		  <description>Returns strike from a given delta.</description>
+		  <libraryFunction>strikeFromDelta</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='Delta'>
+					  <type>QuantLib::Real</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>delta.</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>QuantLib::Real</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+	  </Member-->
+
+
+  </Functions>
+</Category>
