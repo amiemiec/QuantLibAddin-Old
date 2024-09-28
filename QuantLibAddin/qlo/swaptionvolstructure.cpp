@@ -33,6 +33,8 @@
 #include <ql/termstructures/volatility/swaption/spreadedswaptionvol.hpp>
 #include <ql/math/optimization/endcriteria.hpp>
 #include <ql/time/calendars/nullcalendar.hpp>
+#include <ql/quote.hpp>
+
 
 namespace QuantLibAddin {
 
@@ -74,16 +76,33 @@ namespace QuantLibAddin {
             const std::vector<QuantLib::Period>& swapTenors,
             const std::vector<std::vector<QuantLib::Handle<QuantLib::Quote> > >& vols,
             const QuantLib::DayCounter& dayCounter,
+            const bool flatExtrapolation,
+            const QuantLib::VolatilityType volType,
+            const std::vector<std::vector<QuantLib::Handle<QuantLib::Quote> > >& shifts,
             bool permanent)
     : SwaptionVolatilityDiscrete(properties, permanent)
     {
+        //only relevant for the proper shifted log normal volatility model
+        QL_REQUIRE((shifts.empty() || ((vols.size() == shifts.size()) && (vols[1].size() == shifts[1].size()))), "The dimensions of the vols ans shifts arrays should coincide.");
+        std::vector< std::vector< QuantLib::Real> > aux = std::vector< std::vector< QuantLib::Real> >();
+        aux.resize(vols.size());
+        for (unsigned int i = 0; i < vols.size(); i++) {
+            aux[i].resize(vols[i].size());
+            for (unsigned int j = 0; j < vols[i].size(); j++) {
+                aux[i][j] = shifts.empty() ? 0.0 : (*(*shifts[i][j])).value();
+            }
+        }
+
         libraryObject_ = boost::shared_ptr<QuantLib::Extrapolator>(new
             QuantLib::SwaptionVolatilityMatrix(calendar,
-                                               bdc,
-                                               optionTenors,
-                                               swapTenors,
-                                               vols,
-                                               dayCounter));
+                bdc,
+                optionTenors,
+                swapTenors,
+                vols,
+                dayCounter,
+                flatExtrapolation,
+                volType,
+                aux));
     }
 
     std::vector<long> SwaptionVolatilityMatrix::locate(
