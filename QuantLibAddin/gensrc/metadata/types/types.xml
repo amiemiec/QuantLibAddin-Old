@@ -165,6 +165,7 @@
 		<DataType defaultSuperType='libraryClass'>QuantLib::Swap</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::SwapFromFRACorrelationStructure</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::SwapIndex</DataType>
+		<DataType defaultSuperType='libraryClass'>QuantLib::SwapSpreadIndex</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::OISRateHelper</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::SwapRateHelper</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::Swaption</DataType>
@@ -277,6 +278,7 @@
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::VanillaSwap</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::PricingEngine</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::FloatingRateCouponPricer</DataType>
+		<DataType defaultSuperType='objectClass'>QuantLibAddin::SwapSpreadIndex</DataType>
 
 		<DataType defaultSuperType='objectQuote'>QuantLibAddin::SimpleQuote</DataType>
 
