@@ -106,6 +106,8 @@
 		<DataType defaultSuperType='libraryClass'>QuantLib::FloatingRateCouponPricer</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::ForwardRateAgreement</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::FuturesRateHelper</DataType>
+		<DataType defaultSuperType='libraryClass'>QuantLib::FxRangeAccrualFixedCoupon</DataType>
+		<DataType defaultSuperType='libraryClass'>QuantLib::FxRangeAccrualFixedCouponPricer</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::FxSwapRateHelper</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::GeneralizedBlackScholesProcess</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::G2</DataType>
@@ -233,6 +235,7 @@
 		<DataType defaultSuperType='objectClass'>ObjectHandler::Group</DataType>
 		<DataType defaultSuperType='objectClass'>ObjectHandler::Object</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::AssetSwap</DataType>
+		<DataType defaultSuperType='objectClass'>QuantLibAddin::BlackVolTermStructure</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::BlackVolatilitySurfaceDelta</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::Bond</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::BTP</DataType>

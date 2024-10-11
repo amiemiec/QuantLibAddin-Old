@@ -28,9 +28,15 @@ namespace QuantLib {
     class Date;
     class Index;
     class EquityIndex;
+    class FxIndex;
     class YieldTermStructure;
     class Calendar;
     class Quote;
+    class BlackVolTermStructure;
+    class FxRangeAccrualFixedCouponPricer;
+    class FxRangeAccrualFixedCoupon;
+    class DayCounter;
+    class Date;
 
     template <class T>
     class Handle;
@@ -50,6 +56,40 @@ namespace QuantLibAddin {
                 QuantLib::Handle<QuantLib::Quote> spot,
                 bool permanent);
     };
+
+
+
+    class FxRangeAccrualFixedCouponPricer: public ObjectHandler::LibraryObject<QuantLib::FxRangeAccrualFixedCouponPricer> {
+    public:
+        FxRangeAccrualFixedCouponPricer(
+        const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+        QuantLib::Handle<QuantLib::BlackVolTermStructure> fxVolatility,
+        bool permanent);
+    };
+
+    class FxRangeAccrualFixedCoupon : public ObjectHandler::LibraryObject<QuantLib::FxRangeAccrualFixedCoupon> {
+    public:
+        FxRangeAccrualFixedCoupon(
+            // FixedRateCoupon
+            const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+            const QuantLib::Date& paymentDate,
+            QuantLib::Real nominal,
+            QuantLib::Real rate,
+            const QuantLib::DayCounter& dayCounter,
+            const QuantLib::Date& accrualStartDate,
+            const QuantLib::Date& accrualEndDate,
+            // RA feature
+            // calculate observation schedule from coupon
+            const boost::shared_ptr<QuantLib::FxIndex>& fxIndex,
+            QuantLib::Real lowerTrigger,
+            QuantLib::Real upperTrigger,
+            // optional FixedRateCoupon
+            const QuantLib::Date& refPeriodStart,
+            const QuantLib::Date& refPeriodEnd,
+            const QuantLib::Date& exCouponDate,
+            bool permanent);
+    };
+
 
 }
 

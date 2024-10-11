@@ -2,21 +2,25 @@
   <description>functions to construct and use fx Range Accrual objects.</description>
   <displayName>fxRangeAccrual</displayName>
   <xlFunctionWizardCategory>QuantLib - Financial</xlFunctionWizardCategory>
-  <serializationIncludes>
-	<include>qlo/fxrangeaccrual.hpp</include>
-	<include>qlo/termstructures.hpp</include>
-	<include>qlo/handleimpl.hpp</include>
+	<serializationIncludes>
+		<include>qlo/fxrangeaccrual.hpp</include>
+		<include>qlo/termstructures.hpp</include>
+		<include>qlo/handleimpl.hpp</include>
 
-	<include>ql/termstructures/yieldtermstructure.hpp</include>
-	<include>ql/indexes/fxindex.hpp</include>
-  </serializationIncludes>
+		<include>ql/termstructures/volatility/equityfx/blackvoltermstructure.hpp</include>
+		<include>ql/termstructures/yieldtermstructure.hpp</include>
+		<include>ql/indexes/fxindex.hpp</include>
+		<include>ql/cashflows/fxrangeaccrualfixed.hpp</include>
+	</serializationIncludes>
   <addinIncludes>
-    <include>qlo/fxrangeaccrual.hpp</include>
-    <include>qlo/termstructures.hpp</include>
-    <include>qlo/handleimpl.hpp</include>
+		<include>qlo/fxrangeaccrual.hpp</include>
+		<include>qlo/termstructures.hpp</include>
+		<include>qlo/handleimpl.hpp</include>
 
-    <include>ql/termstructures/yieldtermstructure.hpp</include>
-    <include>ql/indexes/fxindex.hpp</include>
+	    <include>ql/termstructures/volatility/equityfx/blackvoltermstructure.hpp</include>
+	    <include>ql/termstructures/yieldtermstructure.hpp</include>
+		<include>ql/indexes/fxindex.hpp</include>
+	    <include>ql/cashflows/fxrangeaccrualfixed.hpp</include>
   </addinIncludes>
   <copyright>
     Copyright (C) 2024 Andre Miemiec
@@ -69,6 +73,149 @@
 		</Parameters>
       </ParameterList>
     </Constructor>
+
+
+
+	  <!--pricers -->
+	  <Constructor name='qlFxRangeAccrualFixedCouponPricer'>
+		  <libraryFunction>FxRangeAccrualFixedCouponPricer</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+			  <SupportedPlatform name='Cpp'/>
+			  <SupportedPlatform name='Calc'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='Volatility'>
+					  <type>QuantLib::BlackVolTermStructure</type>
+					  <superType>libToHandle</superType>
+					  <tensorRank>scalar</tensorRank>
+					  <description>fx volatility surface.</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+	  </Constructor>
+
+      <!--RA Coupon -->
+
+	  <Constructor name='qlFxRangeAccrualFixedCoupon'>
+		  <libraryFunction>FxRangeAccrualFixedCoupon</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+			  <SupportedPlatform name='Cpp'/>
+			  <SupportedPlatform name='Calc'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='PaymentDate'>
+					  <type>QuantLib::Date</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>Payment date.</description>
+				  </Parameter>
+				  <Parameter name='Notional'>
+					  <type>QuantLib::Real</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>coupon notional.</description>
+				  </Parameter>
+				  <Parameter name='FixedRate'>
+					  <type>QuantLib::Real</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>coupon's fixed rate.</description>
+				  </Parameter>
+				  <Parameter name='DayCounter'>
+					  <type>QuantLib::DayCounter</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>coupon's day count convention.</description>
+				  </Parameter>
+				  <Parameter name='StartDate'>
+					  <type>QuantLib::Date</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>accrual start date.</description>
+				  </Parameter>
+				  <Parameter name='EndDate'>
+					  <type>QuantLib::Date</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>accrual end date.</description>
+				  </Parameter>
+				  <Parameter name='FxIndex'>
+					  <type>QuantLib::FxIndex</type>
+					  <superType>libraryClass</superType>
+					  <!-->superType>libToHandle</superType-->
+					  <tensorRank>scalar</tensorRank>
+					  <description>fx index.</description>
+				  </Parameter>
+				  <Parameter name='LowerTrigger'>
+					  <type>QuantLib::Real</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>range's lower bound.</description>
+				  </Parameter>
+				  <Parameter name='UpperTrigger'>
+					  <type>QuantLib::Real</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>range'supper bound.</description>
+				  </Parameter>
+				  <Parameter name='RefPeriodStart' default='QuantLib::Date()'>
+					  <type>QuantLib::Date</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>ref Period start date.</description>
+				  </Parameter>
+				  <Parameter name='RefPeriodEnd' default='QuantLib::Date()'>
+					  <type>QuantLib::Date</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>ref Period end date.</description>
+				  </Parameter>
+				  <Parameter name='ExCpnDate' default='QuantLib::Date()'>
+					  <type>QuantLib::Date</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>ex coupon date.</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+	  </Constructor>
+
+
+	  <Member name='qlFxRangeAccrualFixedCouponSetPricer' type='QuantLib::FxRangeAccrualFixedCoupon'>
+		  <description>Sets a pricer to the range accrual coupon.</description>
+		  <libraryFunction>setPricer</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+			  <SupportedPlatform name='Calc'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			<Parameters>
+				<Parameter name='Pricer'>
+				<type>QuantLib::FxRangeAccrualFixedCouponPricer</type>
+				<superType>libraryClass</superType>
+				<tensorRank>scalar</tensorRank>
+				<description>set the range accrual coupon pricer.</description>
+			</Parameter>
+			</Parameters>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>void</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+	  </Member>
+
+
+
+	  <Member name='qlFxRangeAccrualFixedCouponAmount' type='QuantLib::FxRangeAccrualFixedCoupon'>
+		  <description>Sets a pricer to the range accrual coupon.</description>
+		  <libraryFunction>amount</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+			  <SupportedPlatform name='Calc'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters/>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>QuantLib::Real</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+	  </Member>
+
+
 
 
   </Functions>
