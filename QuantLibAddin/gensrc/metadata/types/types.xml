@@ -115,6 +115,7 @@
 		<DataType defaultSuperType='libraryClass'>QuantLib::IborIndex</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::Euribor</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::Index</DataType>
+		<DataType defaultSuperType='libraryClass'>QuantLib::FxIndex</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::Instrument</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::InterestRateIndex</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::Interpolation2D</DataType>
@@ -279,6 +280,7 @@
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::PricingEngine</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::FloatingRateCouponPricer</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::SwapSpreadIndex</DataType>
+		<DataType defaultSuperType='objectClass'>QuantLibAddin::FxIndex</DataType>
 
 		<DataType defaultSuperType='objectQuote'>QuantLibAddin::SimpleQuote</DataType>
 
