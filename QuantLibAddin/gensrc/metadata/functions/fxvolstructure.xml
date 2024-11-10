@@ -115,7 +115,7 @@
     </Constructor>
 
 
-	  <!--Member name='qlFXDeltaVolatility' type='QuantLib::BlackVolatilitySurfaceDelta' superType='libraryTermStructure'>
+	<Member name='qlFXDeltaVolatility' type='QuantLib::BlackVolatilitySurfaceDelta' superType='libraryTermStructure'>
 		  <description>Returns volatility from the given FX Volatility object.</description>
 		  <libraryFunction>blackVol</libraryFunction>
 		  <SupportedPlatforms>
@@ -144,10 +144,10 @@
 			  <type>QuantLib::Volatility</type>
 			  <tensorRank>scalar</tensorRank>
 		  </ReturnValue>
-	  </Member-->
+	  </Member>
 
 
-	  <!--Constructor name='qlBlackDeltaCalculator'>
+	  <Constructor name='qlBlackDeltaCalculator'>
 		  <libraryFunction>BlackDeltaCalculator</libraryFunction>
 		  <SupportedPlatforms>
 			  <SupportedPlatform name='Excel'/>
@@ -186,10 +186,10 @@
 				  </Parameter>
 			  </Parameters>
 		  </ParameterList>
-	  </Constructor-->
+	  </Constructor>
 
 
-	  <!--Member name='qlBlackDeltaCalculatorAtmStrike' type='QuantLib::BlackDeltaCalculator' superType='libraryTermStructure'>
+	  <Member name='qlBlackDeltaCalculatorAtmStrike' type='QuantLib::BlackDeltaCalculator' superType='libraryTermStructure'>
 		  <description>Returns volatility from the given FX Volatility object.</description>
 		  <libraryFunction>atmStrike</libraryFunction>
 		  <SupportedPlatforms>
@@ -208,11 +208,11 @@
 			  <type>QuantLib::Real</type>
 			  <tensorRank>scalar</tensorRank>
 		  </ReturnValue>
-	  </Member-->
+	  </Member>
 
 
 
-	  <!--Member name='qlBlackDeltaCalculatorDeltaFromStrike' type='QuantLib::BlackDeltaCalculator' superType='libraryTermStructure'>
+	  <Member name='qlBlackDeltaCalculatorDeltaFromStrike' type='QuantLib::BlackDeltaCalculator' superType='libraryTermStructure'>
 		  <description>Returns volatility from the given FX Volatility object.</description>
 		  <libraryFunction>deltaFromStrike</libraryFunction>
 		  <SupportedPlatforms>
@@ -231,9 +231,9 @@
 			  <type>QuantLib::Real</type>
 			  <tensorRank>scalar</tensorRank>
 		  </ReturnValue>
-	  </Member-->
+	  </Member>
 
-	  <!--Member name='qlBlackDeltaCalculatorStrikeFromDelta' type='QuantLib::BlackDeltaCalculator' superType='libraryTermStructure'>
+	  <Member name='qlBlackDeltaCalculatorStrikeFromDelta' type='QuantLib::BlackDeltaCalculator' superType='libraryTermStructure'>
 		  <description>Returns strike from a given delta.</description>
 		  <libraryFunction>strikeFromDelta</libraryFunction>
 		  <SupportedPlatforms>
@@ -252,7 +252,7 @@
 			  <type>QuantLib::Real</type>
 			  <tensorRank>scalar</tensorRank>
 		  </ReturnValue>
-	  </Member-->
+	  </Member>
 
 
   </Functions>

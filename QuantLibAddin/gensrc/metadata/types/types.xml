@@ -85,6 +85,8 @@
 		<DataType defaultSuperType='libraryClass'>QuantLib::CmsCouponPricer</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::CmsMarket</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::CmsMarketCalibration</DataType>
+		<DataType defaultSuperType='libraryClass'>QuantLib::CmsRangeAccrualFixedCoupon</DataType>
+		<DataType defaultSuperType='libraryClass'>QuantLib::CmsRangeAccrualFixedCouponPricer</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::ConstNotionalCrossCurrencyBasisSwapRateHelper</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::Constraint</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLib::CorrelationTermStructure</DataType>
