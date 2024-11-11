@@ -31,6 +31,7 @@
 #include <ql/time/daycounter.hpp>
 #include <ql/termstructures/yieldtermstructure.hpp>
 #include <ql/cashflows/cmsrangeaccrualfixed.hpp>
+#include <ql/cashflows/conundrumpricer.hpp>
 #include <ql/time/daycounter.hpp>
 #include <ql/time/date.hpp>
 
@@ -39,8 +40,8 @@ namespace QuantLibAddin {
 
 
 
-
- CmsRangeAccrualFixedCouponPricer::CmsRangeAccrualFixedCouponPricer(
+/*
+ CmsRangeAccrualFixedCouponPricer1::CmsRangeAccrualFixedCouponPricer1(
      const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
      QuantLib::Handle<QuantLib::SwaptionVolatilityStructure> swptnVolatility,
      bool permanent) : LibraryObject<QuantLib::CmsRangeAccrualFixedCouponPricer>(properties, permanent)
@@ -49,6 +50,20 @@ namespace QuantLibAddin {
      libraryObject_ = boost::shared_ptr<QuantLib::CmsRangeAccrualFixedCouponPricer>(new QuantLib::CmsRangeAccrualFixedCouponPricer(swptnVolatility));
 
  }
+ */
+
+ 
+ CmsRangeAccrualFixedCouponPricer::CmsRangeAccrualFixedCouponPricer(
+     const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+     const boost::shared_ptr<QuantLib::CmsCouponPricer>& cmsPricer,
+     bool permanent) : LibraryObject<QuantLib::CmsRangeAccrualFixedCouponPricer>(properties, permanent)
+ {
+
+     libraryObject_ = boost::shared_ptr<QuantLib::CmsRangeAccrualFixedCouponPricer>(new QuantLib::CmsRangeAccrualFixedCouponPricer(cmsPricer));
+
+ }
+ 
+
 
 
 

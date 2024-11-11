@@ -7,6 +7,8 @@
 		<include>qlo/termstructures.hpp</include>
 		<include>qlo/handleimpl.hpp</include>
 		<include>qlo/indexes/swapindex.hpp</include>
+		<include>qlo/conundrumpricer.hpp</include>
+
 
 		<include>ql/termstructures/volatility/swaption/swaptionvolstructure.hpp</include>
 		<include>ql/termstructures/yieldtermstructure.hpp</include>
@@ -14,7 +16,8 @@
 		<include>ql/cashflows/cmsrangeaccrualfixed.hpp</include>
 	</serializationIncludes>
   <addinIncludes>
-		<include>qlo/cmsrangeaccrual.hpp</include>
+	    <include>qlo/conundrumpricer.hpp</include>
+	    <include>qlo/cmsrangeaccrual.hpp</include>
 		<include>qlo/termstructures.hpp</include>
 		<include>qlo/handleimpl.hpp</include>
 	    <include>qlo/indexes/swapindex.hpp</include>
@@ -30,10 +33,9 @@
   <Functions>
 
 
-
 	  <!--pricers -->
-	  <Constructor name='qlCmsRangeAccrualFixedCouponPricer'>
-		  <libraryFunction>CmsRangeAccrualFixedCouponPricer</libraryFunction>
+	  <!--Constructor name='qlCmsRangeAccrualFixedCouponPricer1'>
+		  <libraryFunction>CmsRangeAccrualFixedCouponPricer1</libraryFunction>
 		  <SupportedPlatforms>
 			  <SupportedPlatform name='Excel'/>
 			  <SupportedPlatform name='Cpp'/>
@@ -49,9 +51,29 @@
 				  </Parameter>
 			  </Parameters>
 		  </ParameterList>
+	  </Constructor-->
+
+
+	  <Constructor name='qlCmsRangeAccrualFixedCouponPricer'>
+		  <libraryFunction>CmsRangeAccrualFixedCouponPricer</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+			  <SupportedPlatform name='Cpp'/>
+			  <SupportedPlatform name='Calc'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='CmsPricer'>
+					  <type>QuantLib::CmsCouponPricer</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>Cms Pricer.</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
 	  </Constructor>
 
-      <!--RA Coupon -->
+
+	  <!--RA Coupon -->
 
 	  <Constructor name='qlCmsRangeAccrualFixedCoupon'>
 		  <libraryFunction>CmsRangeAccrualFixedCoupon</libraryFunction>

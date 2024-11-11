@@ -34,6 +34,7 @@ namespace QuantLib {
     class SwaptionVolatilityStructure;
     class CmsRangeAccrualFixedCouponPricer;
     class CmsRangeAccrualFixedCoupon;
+    class CmsCouponPricer;
     class DayCounter;
     class Date;
 
@@ -43,14 +44,26 @@ namespace QuantLib {
 
 namespace QuantLibAddin {
 
-
-    class CmsRangeAccrualFixedCouponPricer: public ObjectHandler::LibraryObject<QuantLib::CmsRangeAccrualFixedCouponPricer> {
+/*
+    class CmsRangeAccrualFixedCouponPricer1: public ObjectHandler::LibraryObject<QuantLib::CmsRangeAccrualFixedCouponPricer> {
     public:
-        CmsRangeAccrualFixedCouponPricer(
+        CmsRangeAccrualFixedCouponPricer1(
         const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
         QuantLib::Handle<QuantLib::SwaptionVolatilityStructure> swptnVolatility,
         bool permanent);
     };
+    */
+    
+    class CmsRangeAccrualFixedCouponPricer : public ObjectHandler::LibraryObject<QuantLib::CmsRangeAccrualFixedCouponPricer> {
+    public:
+        CmsRangeAccrualFixedCouponPricer(
+            const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+            const boost::shared_ptr<QuantLib::CmsCouponPricer>& cmsPricer,
+            bool permanent);
+    };
+    
+
+
 
     class CmsRangeAccrualFixedCoupon : public ObjectHandler::LibraryObject<QuantLib::CmsRangeAccrualFixedCoupon> {
     public:
