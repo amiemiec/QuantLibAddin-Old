@@ -1574,7 +1574,24 @@
       </EnumeratedTypes>
     </EnumeratedTypeGroup>
 
-    <EnumeratedTypeGroup type='QuantLib::Futures::Type'>
+	<EnumeratedTypeGroup type='QuantLib::IrregularSwap::Type'>
+		<includeFile>oh/enumerations/typefactory.hpp</includeFile>
+		<constructor>true</constructor>
+		<EnumeratedTypes>
+			<EnumeratedType>
+				<string>Payer</string>
+				<value>QuantLib::IrregularSwap::Payer</value>
+			</EnumeratedType>
+			<EnumeratedType>
+				<string>Receiver</string>
+				<value>QuantLib::IrregularSwap::Receiver</value>
+			</EnumeratedType>
+		</EnumeratedTypes>
+	</EnumeratedTypeGroup>
+
+
+
+	  <EnumeratedTypeGroup type='QuantLib::Futures::Type'>
       <includeFile>oh/enumerations/typefactory.hpp</includeFile>
       <constructor>true</constructor>
       <EnumeratedTypes>
@@ -1703,7 +1720,23 @@
       </EnumeratedTypes>
     </EnumeratedTypeGroup>
 
-    <EnumeratedTypeGroup type='QuantLib::GFunctionFactory::YieldCurveModel'>
+	<EnumeratedTypeGroup type='QuantLib::IrregularSettlement::Type'>
+		<includeFile>oh/enumerations/typefactory.hpp</includeFile>
+		<constructor>true</constructor>
+		<EnumeratedTypes>
+			<EnumeratedType>
+				<string>Physical</string>
+				<value>QuantLib::IrregularSettlement::Physical</value>
+			</EnumeratedType>
+			<EnumeratedType>
+				<string>Cash</string>
+				<value>QuantLib::IrregularSettlement::Cash</value>
+			</EnumeratedType>
+		</EnumeratedTypes>
+	</EnumeratedTypeGroup>
+
+
+	  <EnumeratedTypeGroup type='QuantLib::GFunctionFactory::YieldCurveModel'>
       <includeFile>oh/enumerations/typefactory.hpp</includeFile>
       <constructor>true</constructor>
       <EnumeratedTypes>

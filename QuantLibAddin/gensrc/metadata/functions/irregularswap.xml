@@ -1,0 +1,112 @@
+<Category name='irregularswap'>
+  <description>functions to construct and use IrregularSwap objects.</description>
+  <displayName>Irregular Swap</displayName>
+  <xlFunctionWizardCategory>QuantLib - Financial</xlFunctionWizardCategory>
+  <addinIncludes>
+    <include>qlo/leg.hpp</include>
+    <include>qlo/irregularswap.hpp</include>
+    <include>qlo/indexes/iborindex.hpp</include>
+    <include>qlo/schedule.hpp</include>
+    <include>qlo/termstructures.hpp</include>
+    <include>ql/indexes/iborindex.hpp</include>
+  </addinIncludes>
+  <serializationIncludes>
+    <include>qlo/leg.hpp</include>
+    <include>qlo/irregularswap.hpp</include>
+    <include>qlo/indexes/iborindex.hpp</include>
+    <include>qlo/schedule.hpp</include>
+    <include>qlo/termstructures.hpp</include>
+    <include>ql/indexes/iborindex.hpp</include>
+  </serializationIncludes>
+  <copyright>
+    Copyright (C) 2006, 2007 Ferdinando Ametrano
+    Copyright (C) 2005, 2006 Eric Ehlers
+    Copyright (C) 2005 Plamen Neykov
+    Copyright (C) 2005 Aurelien Chanudet
+  </copyright>
+  <Functions>
+
+    <Constructor name='qlIrregularSwap'>
+      <libraryFunction>IrregularSwap</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Cpp'/>
+      </SupportedPlatforms>
+      <processorName>InstrumentProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='PayerReceiver' default='"Payer"'>
+            <type>QuantLib::IrregularSwap::Type</type>
+            <tensorRank>scalar</tensorRank>
+            <description>PAYER to pay the fixed rate, RECEIVER to receive it.</description>
+          </Parameter>
+         <Parameter name='FixedRateLeg' exampleValue='FixedRateLeg'>
+            <type>QuantLib::Leg</type>
+            <tensorRank>scalar</tensorRank>
+            <description>fixed rate leg object ID.</description>
+          </Parameter>
+          <Parameter name='IborLeg' exampleValue='IborLeg'>
+            <type>QuantLib::Leg</type>
+            <tensorRank>scalar</tensorRank>
+            <description>ibor leg object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+ 
+    <Member name='qlIrregularSwapType' type='QuantLib::IrregularSwap'>
+      <description>returns the swap type (Payer or Receiver) of the given IrregularSwap object.</description>
+      <libraryFunction>type</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters />
+      </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::IrregularSwap::Type</type>
+        <tensorRank>scalar</tensorRank>
+      </ReturnValue>
+    </Member>
+
+
+    <Member name='qlIrregularSwapFixedLegAnalysis' type='QuantLibAddin::IrregularSwap'>
+      <description>returns the fixed rate leg cash flow analysis of the given IrregularSwap object.</description>
+      <libraryFunction>fixedLegAnalysis</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters></Parameters>
+      </ParameterList>
+      <ReturnValue>
+        <type>any</type>
+        <tensorRank>matrix</tensorRank>
+      </ReturnValue>
+    </Member>
+
+    <Member name='qlIrregularSwapFloatingLegAnalysis' type='QuantLibAddin::IrregularSwap'>
+      <description>returns the floating rate leg cash flow analysis.</description>
+      <libraryFunction>floatingLegAnalysis</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <!--SupportedPlatform name='Cpp'/-->
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters />
+      </ParameterList>
+      <ReturnValue>
+        <type>any</type>
+        <tensorRank>matrix</tensorRank>
+      </ReturnValue>
+    </Member>
+
+  </Functions>
+</Category>

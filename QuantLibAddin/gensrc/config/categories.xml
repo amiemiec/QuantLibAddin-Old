@@ -36,7 +36,9 @@
     <categoryName>index</categoryName>
     <categoryName>instruments</categoryName>
     <categoryName>interpolation</categoryName>
-    <categoryName>latentmodels</categoryName>
+    <categoryName>irregularswap</categoryName>
+	<categoryName>irregularswaption</categoryName>
+	<categoryName>latentmodels</categoryName>
     <categoryName>leg</categoryName>
     <categoryName>marketmodels</categoryName>
     <categoryName>marketmodelevolvers</categoryName>

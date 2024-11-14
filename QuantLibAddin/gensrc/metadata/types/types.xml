@@ -21,6 +21,8 @@
 		<DataType defaultSuperType='enumeration'>QuantLib::Frequency</DataType>
 		<DataType defaultSuperType='enumeration'>QuantLib::GFunctionFactory::YieldCurveModel</DataType>
 		<DataType defaultSuperType='enumeration'>QuantLib::InterpolatedSmileSection::InterpolationMethod</DataType>
+		<DataType defaultSuperType='enumeration'>QuantLib::IrregularSwap::Type</DataType>
+		<DataType defaultSuperType='enumeration'>QuantLib::IrregularSettlement::Type</DataType>
 		<DataType defaultSuperType='enumeration'>QuantLib::Month</DataType>
 		<DataType defaultSuperType='enumeration'>QuantLib::Option::Type</DataType>
 		<DataType defaultSuperType='enumeration'>QuantLib::Pillar::Choice</DataType>
@@ -124,6 +126,8 @@
 		<DataType defaultSuperType='libraryClass'>QuantLib::InterestRateIndex</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::Interpolation2D</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::Interpolation</DataType>
+		<DataType defaultSuperType='libraryClass'>QuantLib::IrregularSwap</DataType>
+		<DataType defaultSuperType='libraryClass'>QuantLib::IrregularSwaption</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::LMMCurveState</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::LineSearch</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::LmExtLinearExponentialVolModel</DataType>
@@ -259,6 +263,8 @@
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::InterpolatedYieldCurve</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::Interpolation</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::InterestRate</DataType>
+		<DataType defaultSuperType='objectClass'>QuantLibAddin::IrregularSwap</DataType>
+		<DataType defaultSuperType='objectClass'>QuantLibAddin::IrregularSwaption</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::CubicInterpolation</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::AbcdInterpolation</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::SABRInterpolation</DataType>
