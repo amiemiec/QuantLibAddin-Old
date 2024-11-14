@@ -50,7 +50,8 @@
     <categoryName>piecewiseyieldcurve</categoryName>
     <categoryName>prices</categoryName>
     <categoryName>pricingengines</categoryName>
-    <categoryName>processes</categoryName>
+	<categoryName>pricingengines_misc</categoryName>
+	<categoryName>processes</categoryName>
     <categoryName>products</categoryName>
     <categoryName>randomsequencegenerator</categoryName>
     <categoryName>rangeaccrual</categoryName>
