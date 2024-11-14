@@ -256,6 +256,7 @@
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::Instrument</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::InterpolatedYieldCurve</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::Interpolation</DataType>
+		<DataType defaultSuperType='objectClass'>QuantLibAddin::InterestRate</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::CubicInterpolation</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::AbcdInterpolation</DataType>
 		<DataType defaultSuperType='objectClass'>QuantLibAddin::SABRInterpolation</DataType>

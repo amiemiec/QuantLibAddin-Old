@@ -27,20 +27,22 @@
 #include <ql/models/shortrate/onefactormodels/vasicek.hpp>
 #include <ql/models/shortrate/onefactormodels/hullwhite.hpp>
 #include <ql/models/shortrate/twofactormodels/g2.hpp>
+#include <ql/experimental/shortrate/generalizedhullwhite.hpp>
+#include <ql/interestrate.hpp>
 
 namespace QuantLibAddin {
 
-    //ShortRateModel::ShortRateModel(
-    //            const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-    //            //QuantLib::Size nArguments,
-    //            bool permanent)
-    //: CalibratedModel(properties, permanent){}
+    ShortRateModel::ShortRateModel(
+                const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+                //QuantLib::Size nArguments,
+                bool permanent)
+    : CalibratedModel(properties, permanent){}
 
-    //OneFactorModel::OneFactorModel(
-    //            const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-    //            //QuantLib::Size nArguments,
-    //            bool permanent)
-    //: ShortRateModel(properties, permanent){}
+    OneFactorModel::OneFactorModel(
+                const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+                //QuantLib::Size nArguments,
+                bool permanent)
+    : ShortRateModel(properties, permanent){}
 
     //OneFactorAffineModel::OneFactorAffineModel(
     //           const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
@@ -90,6 +92,24 @@ namespace QuantLibAddin {
         libraryObject_ = boost::shared_ptr<QuantLib::AffineModel>(new
             QuantLib::G2(termStructure, a, sigma, b, eta, rho));
     }
+
+
+
+    GeneralizedHullWhite::GeneralizedHullWhite(
+        const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+        const QuantLib::Handle<QuantLib::YieldTermStructure>& hYTS,
+        const std::vector<QuantLib::Date>& speedstructure,
+        const std::vector<QuantLib::Date>& volstructure,
+        const std::vector<QuantLib::Real>& speed,
+        const std::vector<QuantLib::Real>& vol,
+        const boost::shared_ptr<QuantLib::InterestRate>& oas,
+        bool permanent) : OneFactorModel(properties, permanent)
+    {
+        libraryObject_ = boost::shared_ptr<QuantLib::OneFactorModel>(new
+            QuantLib::GeneralizedHullWhite(hYTS, speedstructure, volstructure, speed, vol, *oas));
+    }
+
+
 
 }
 

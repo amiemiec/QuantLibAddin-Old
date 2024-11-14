@@ -23,33 +23,41 @@
 
 #include <qlo/termstructures.hpp>
 #include <qlo/models.hpp>
+#include <qlo/leg.hpp>
 
 #include <ql/types.hpp>
 
 namespace QuantLib {
     template <class T>
     class Handle;
+    class Date;
+    class InterestRate;
 
     class AffineModel;
     class OneFactorAffineModel;
+    class OneFactorModel;
+}
 
+
+namespace QuantLibAddin {
+    class InterestRate;
 }
 
 namespace QuantLibAddin {
 
     OH_LIB_CLASS(AffineModel, QuantLib::AffineModel);
 
-    //class ShortRateModel : public CalibratedModel {
-    //public:
-    //    ShortRateModel(const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-    //                   bool permanent);
-    //};
+    class ShortRateModel : public CalibratedModel {
+    public:
+        ShortRateModel(const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+                       bool permanent);
+    };
 
-    //class OneFactorModel : public ShortRateModel {
-    //public:
-    //    OneFactorModel(const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-    //                   bool permanent);
-    //};
+    class OneFactorModel : public ShortRateModel {
+    public:
+        OneFactorModel(const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+                       bool permanent);
+    };
 
     class OneFactorAffineModel : public AffineModel {
                                  //public OneFactorModel {
@@ -89,7 +97,23 @@ namespace QuantLibAddin {
            QuantLib::Real rho,
            bool permanent);
     };
+
+    
+
+    class GeneralizedHullWhite : public OneFactorModel {
+    public:
+        GeneralizedHullWhite(const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+            const QuantLib::Handle<QuantLib::YieldTermStructure>& hYTS,
+            const std::vector<QuantLib::Date>& speedstructure,
+            const std::vector<QuantLib::Date>& volstructure,
+            const std::vector<QuantLib::Real>& speed,
+            const std::vector<QuantLib::Real>& vol,
+            const boost::shared_ptr<QuantLib::InterestRate>& oas,
+            bool permanent);
+    };
+
+
+
 }
 
 #endif
-
