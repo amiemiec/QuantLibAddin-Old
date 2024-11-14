@@ -35,6 +35,9 @@
 #include <ql/pricingengines/swaption/treeswaptionengine.hpp>
 #include <ql/pricingengines/swaption/g2swaptionengine.hpp>
 
+#include <ql/models/model.hpp>
+
+
 namespace QuantLibAddin {
 
     // PricingEngines - without timesteps
@@ -70,6 +73,18 @@ namespace QuantLibAddin {
             QuantLib::DiscountingSwapEngine(hYTS, includeSettlementDateFlows,
                                             settlementDate, npvDate));
     }
+
+
+    BachelierSwaptionEngine::BachelierSwaptionEngine(
+        const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+        const QuantLib::Handle<QuantLib::YieldTermStructure>& hYTS,
+        const QuantLib::Handle<QuantLib::SwaptionVolatilityStructure>& vol,
+        bool permanent) : PricingEngine(properties, permanent)
+    {
+        libraryObject_ = boost::shared_ptr<QuantLib::PricingEngine>(new
+            QuantLib::BachelierSwaptionEngine(hYTS, vol));
+    }
+
 
     BlackSwaptionEngine::BlackSwaptionEngine(
         const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
@@ -223,7 +238,7 @@ namespace QuantLibAddin {
 
     TreeSwaptionEngine::TreeSwaptionEngine(
         const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-        const boost::shared_ptr<QuantLib::OneFactorAffineModel>& model,
+        const boost::shared_ptr<QuantLib::ShortRateModel>& model,
         QuantLib::Size timeSteps,
         const QuantLib::Handle<QuantLib::YieldTermStructure>& termStructure,
         bool permanent) : PricingEngine(properties, permanent)

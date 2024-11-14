@@ -32,30 +32,6 @@
 
 namespace QuantLibAddin {
 
-    ShortRateModel::ShortRateModel(
-                const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-                //QuantLib::Size nArguments,
-                bool permanent)
-    : CalibratedModel(properties, permanent){}
-
-    OneFactorModel::OneFactorModel(
-                const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-                //QuantLib::Size nArguments,
-                bool permanent)
-    : ShortRateModel(properties, permanent){}
-
-    //OneFactorAffineModel::OneFactorAffineModel(
-    //           const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-    //           //QuantLib::Size nArguments,
-    //           bool permanent) 
-    //: OneFactorModel(properties, permanent){}
-
-    OneFactorAffineModel::OneFactorAffineModel(
-                const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-                //QuantLib::Size nArguments,
-                bool permanent) 
-    : AffineModel(properties, permanent)/*, OneFactorModel(properties, permanent)*/ {}
-
     Vasicek::Vasicek(const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
                      QuantLib::Rate r0,
                      QuantLib::Real a,

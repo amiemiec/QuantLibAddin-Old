@@ -1325,7 +1325,35 @@
       </ParameterList>
     </Constructor>
 
-    <Constructor name='qlBlackSwaptionEngine'>
+
+	<Constructor name='qlBachelierBlackSwaptionEngine'>
+		<libraryFunction>BachelierSwaptionEngine</libraryFunction>
+		<SupportedPlatforms>
+			<SupportedPlatform name='Excel'/>
+			<SupportedPlatform name='Calc'/>
+			<SupportedPlatform name='Cpp'/>
+		</SupportedPlatforms>
+		<ParameterList>
+			<Parameters>
+				<Parameter name='YieldCurve' >
+					<type>QuantLib::YieldTermStructure</type>
+					<superType>libToHandle</superType>
+					<tensorRank>scalar</tensorRank>
+					<description>discounting yield term structure object ID.</description>
+				</Parameter>
+				<Parameter name='VolTS'>
+					<type>QuantLib::SwaptionVolatilityStructure</type>
+					<superType>libToHandle</superType>
+					<tensorRank>scalar</tensorRank>
+					<description>SwaptionVolatilityStructure object ID.</description>
+				</Parameter>
+			</Parameters>
+		</ParameterList>
+	</Constructor>
+
+
+
+	  <Constructor name='qlBlackSwaptionEngine'>
       <libraryFunction>BlackSwaptionEngine</libraryFunction>
       <SupportedPlatforms>
         <SupportedPlatform name='Excel'/>
@@ -1585,7 +1613,8 @@
       <ParameterList>
         <Parameters>
           <Parameter name='Model' >
-            <type>QuantLib::OneFactorAffineModel</type>
+            <type>QuantLib::ShortRateModel</type>
+			<superType>libraryClass</superType> 
             <tensorRank>scalar</tensorRank>
             <description>Model object ID.</description>
           </Parameter>

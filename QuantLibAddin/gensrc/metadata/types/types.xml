@@ -138,7 +138,9 @@
 		<DataType defaultSuperType='libraryClass'>QuantLib::NumericHaganPricer</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::NthToDefault</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::OneAssetOption</DataType>
+		<DataType defaultSuperType='libraryClass'>QuantLib::ShortRateModel</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::OneFactorAffineModel</DataType>
+		<DataType defaultSuperType='libraryClass'>QuantLib::OneFactorModel</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::OptimizationMethod</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::OptionletStripper1</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::OptionletStripper2</DataType>

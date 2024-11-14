@@ -1,7 +1,8 @@
 /* -*- mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 
 /*
- Copyright (C) 2015 Paolo Mazzocchi
+ Copyright (C) 2005, 2006 Eric Ehlers
+ Copyright (C) 2005 Aurelien Chanudet
 
  This file is part of QuantLib, a free-software/open-source library
  for financial quantitative analysts and developers - http://quantlib.org/
@@ -17,29 +18,20 @@
  FOR A PARTICULAR PURPOSE.  See the license for more details.
 */
 
-#ifndef qla_models_hpp
-#define qla_models_hpp
-
-#include <oh/libraryobject.hpp>
+#if defined(HAVE_CONFIG_H)     // Dynamically created by configure
+    #include <qlo/config.hpp>
+#endif
 #include <qlo/basicshortratemodel.hpp>
-#include <ql/types.hpp>
-
-
-namespace QuantLib {
-    class ShortRateModel;
-    class OneFactorModel;
-    class OneFactorAffineModel;
-    class CalibratedModel;
-}
+#include <ql/models/models.hpp>
 
 namespace QuantLibAddin {
 
-    OH_OBJ_CLASS(OneFactorModel, ShortRateModel);
-    OH_OBJ_CLASS(OneFactorAffineModel, OneFactorModel);
+	/*
+    void Extrapolator::enableExtrapolation(bool b) {
+        libraryObject_->enableExtrapolation(b);
+        boost::shared_ptr<ObjectHandler::ValueObject> inst_properties = properties();
+        inst_properties->setProperty("UserExtrapolation", b);
+    }
+    */
 
-    // MarketModels
-    OH_LIB_CLASS(CalibratedModel, QuantLib::CalibratedModel);
 }
-
-
-#endif

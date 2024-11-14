@@ -49,6 +49,7 @@ namespace QuantLib {
     class DiscountingSwapEngine;
     class GeneralizedBlackScholesProcess;
     class OneFactorAffineModel;
+    class ShortRateModel;
     class G2;
 
     template <class T>
@@ -86,6 +87,17 @@ namespace QuantLibAddin {
             const QuantLib::Date& npvDate,
             bool permanent);
     };
+
+
+    class BachelierSwaptionEngine : public PricingEngine {
+    public:
+        BachelierSwaptionEngine(
+            const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+            const QuantLib::Handle<QuantLib::YieldTermStructure>&,
+            const QuantLib::Handle<QuantLib::SwaptionVolatilityStructure>&,
+            bool permanent);
+    };
+
 
     class BlackSwaptionEngine : public PricingEngine {
       public:
@@ -214,7 +226,7 @@ namespace QuantLibAddin {
     public:
         TreeSwaptionEngine(
             const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-            const boost::shared_ptr<QuantLib::OneFactorAffineModel>& model,
+            const boost::shared_ptr<QuantLib::ShortRateModel>& model,
             QuantLib::Size timeSteps,
             const QuantLib::Handle<QuantLib::YieldTermStructure>& termStructure,
             bool permanent);

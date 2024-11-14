@@ -40,31 +40,9 @@ namespace QuantLib {
 
 
 namespace QuantLibAddin {
-    class InterestRate;
-}
-
-namespace QuantLibAddin {
 
     OH_LIB_CLASS(AffineModel, QuantLib::AffineModel);
 
-    class ShortRateModel : public CalibratedModel {
-    public:
-        ShortRateModel(const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-                       bool permanent);
-    };
-
-    class OneFactorModel : public ShortRateModel {
-    public:
-        OneFactorModel(const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-                       bool permanent);
-    };
-
-    class OneFactorAffineModel : public AffineModel {
-                                 //public OneFactorModel {
-     public:
-       OneFactorAffineModel(const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-                            bool permanent);
-};
 
     class Vasicek : public OneFactorAffineModel {
       public:
