@@ -26,6 +26,7 @@
 
 #include <ql/termstructures/volatility/equityfx/blackvoltermstructure.hpp>
 #include <ql/termstructures/volatility/fx/blackvolsurfacedelta.hpp>
+#include <ql/termstructures/volatility/fx/fxblackvolsurface.hpp>
 #include <ql/experimental/fx/deltavolquote.hpp>
 #include <ql/experimental/fx/blackdeltacalculator.hpp>
 
@@ -37,6 +38,7 @@ namespace QuantLib {
 
     class BlackVolatilityTermStructure;
     class BlackVolatilitySurfaceDelta;
+    class FxBlackVannaVolgaVolatilitySurface;
 }
 
 namespace QuantLibAddin {
@@ -78,6 +80,23 @@ namespace QuantLibAddin {
             const QuantLib::Real& stdDev,
             bool permanent);
      };
+
+
+    class FxBlackVannaVolgaVolatilitySurface : public BlackVolTermStructure {
+    public:
+        FxBlackVannaVolgaVolatilitySurface(const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+            const QuantLib::Date& referenceDate, const std::vector<QuantLib::Date>& dates,
+            const std::vector<QuantLib::Volatility>& atmVols, const std::vector<QuantLib::Volatility>& rr,
+            const std::vector<QuantLib::Volatility>& bf, const QuantLib::DayCounter& dayCounter, const QuantLib::Calendar& cal,
+            const QuantLib::Handle<QuantLib::Quote>& fxSpot, const QuantLib::Handle<QuantLib::YieldTermStructure>& domesticTS,
+            const QuantLib::Handle<QuantLib::YieldTermStructure>& foreignTS, bool requireMonotoneVariance,
+            const bool firstApprox,
+            const std::vector <QuantLib::DeltaVolQuote::AtmType> atmType,
+            const std::vector <QuantLib::DeltaVolQuote::DeltaType> deltaType,
+            const QuantLib::Real delta, const QuantLib::Period& switchTenor,
+            bool permanent);
+    };
+
 
     
 }

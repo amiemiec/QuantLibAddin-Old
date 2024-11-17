@@ -7,6 +7,7 @@
 	<include>qlo/fxvolstructure.hpp</include>
 	<include>ql/experimental/fx/deltavolquote.hpp</include>
     <include>ql/termstructures/volatility/fx/blackvolsurfacedelta.hpp</include>
+	<include>ql/termstructures/volatility/fx/fxblackvolsurface.hpp</include>
   </serializationIncludes>
   <addinIncludes>
     <include>qlo/handleimpl.hpp</include>
@@ -14,13 +15,114 @@
 	<include>qlo/fxvolstructure.hpp</include>
     <include>ql/experimental/fx/deltavolquote.hpp</include>
     <include>ql/termstructures/volatility/fx/blackvolsurfacedelta.hpp</include>
+	<include>ql/termstructures/volatility/fx/fxblackvolsurface.hpp</include>
   </addinIncludes>
   <copyright>
     Copyright (C) 2024 Andre Miemiec
   </copyright>
   <Functions>
 
-  <Constructor name='qlFxVolatilitySurfaceDelta'>
+
+
+	  <Constructor name='qlFxBlackVannaVolgaVolatilitySurface'>
+		  <libraryFunction>FxBlackVannaVolgaVolatilitySurface</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				<Parameter name='ReferenceDate'>
+					<type>QuantLib::Date</type>
+					<tensorRank>scalar</tensorRank>
+					<description>Reference Date.</description>
+				</Parameter>
+				<Parameter name='Dates'>
+					<type>QuantLib::Date</type>
+					<tensorRank>vector</tensorRank>
+					<description>vector of dates.</description>
+				</Parameter>
+				<Parameter name='AtmVols'>
+					<type>QuantLib::Real</type>
+					<tensorRank>vector</tensorRank>
+					<description>vector of atm vols.</description>
+				</Parameter>
+				<Parameter name='RiskReversals'>
+					<type>QuantLib::Real</type>
+					<tensorRank>vector</tensorRank>
+					<description>vector of risk reversals.</description>
+				</Parameter>
+				<Parameter name='Butterflys'>
+					<type>QuantLib::Real</type>
+					<tensorRank>vector</tensorRank>
+					<description>vector of butterflys.</description>
+				</Parameter>
+				<Parameter name='DayCounter'>
+					<type>QuantLib::DayCounter</type>
+					<tensorRank>scalar</tensorRank>
+					<description>day counter.</description>
+				</Parameter>
+				<Parameter name='Calendar'>
+					<type>QuantLib::Calendar</type>
+					<tensorRank>scalar</tensorRank>
+					<description>calendar.</description>
+				</Parameter>
+				<Parameter name='Spot'>
+					<type>QuantLib::Quote</type>
+					<superType>libToHandle</superType>
+					<tensorRank>scalar</tensorRank>
+					<description>fx spot.</description>
+				</Parameter>
+				<Parameter name='DomesticYieldCurve'>
+					<type>QuantLib::YieldTermStructure</type>
+					<superType>libToHandle</superType>
+					<tensorRank>scalar</tensorRank>
+					<description>domestic discounting yield term structure object ID.</description>
+				</Parameter>
+				<Parameter name='ForeignYieldCurve'>
+					<type>QuantLib::YieldTermStructure</type>
+					<superType>libToHandle</superType>
+					<tensorRank>scalar</tensorRank>
+					<description>foreign discounting yield term structure object ID.</description>
+				</Parameter>
+				<Parameter name='RequireMontoneVariance' dafault='true'>
+					  <type>bool</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>boolean indicating if  monton variance shall be assumed.</description>
+				  </Parameter>
+				  <Parameter name='FirstApprox' dafault='false'>
+					<type>bool</type>
+					<tensorRank>scalar</tensorRank>
+					<description>boolean indicating if first approx is used.</description>
+				</Parameter>
+				<Parameter name='AtmTypes' default='"AtmDeltaNeutral"'>
+					  <type>QuantLib::DeltaVolQuote::AtmType</type>
+					  <tensorRank>vector</tensorRank>
+					  <description>front delta type.</description>
+				</Parameter>
+				<Parameter name='DeltaTypes'>
+					<type>QuantLib::DeltaVolQuote::DeltaType</type>
+					<tensorRank>vector</tensorRank>
+					<description>front delta type.</description>
+				</Parameter>
+				<Parameter name='Delta' default='0.25'>
+					<type>QuantLib::Real</type>
+					<tensorRank>scalar</tensorRank>
+					<description>delta.</description>
+				</Parameter>
+				<Parameter name='SwitchTenor' examplevalue='"0*Days"'>
+					<type>QuantLib::Period</type>
+					<tensorRank>scalar</tensorRank>
+					<description>switch tenor, default = 0d.</description>
+				</Parameter>
+			</Parameters>
+		  </ParameterList>
+	  </Constructor>
+
+
+
+
+
+	  <Constructor name='qlFxVolatilitySurfaceDelta'>
       <libraryFunction>BlackVolatilitySurfaceDelta</libraryFunction>
       <SupportedPlatforms>
 	    <SupportedPlatform name='Excel'/>
@@ -254,6 +356,6 @@
 		  </ReturnValue>
 	  </Member>
 
-
+	  
   </Functions>
 </Category>

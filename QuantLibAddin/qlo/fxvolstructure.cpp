@@ -101,4 +101,56 @@ namespace QuantLibAddin {
     };
 
 
+
+
+    FxBlackVannaVolgaVolatilitySurface::FxBlackVannaVolgaVolatilitySurface(
+        const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+        const QuantLib::Date& referenceDate, const std::vector<QuantLib::Date>& dates,
+        const std::vector<QuantLib::Volatility>& atmVols, const std::vector<QuantLib::Volatility>& rr,
+        const std::vector<QuantLib::Volatility>& bf, const QuantLib::DayCounter& dayCounter, const QuantLib::Calendar& cal,
+        const QuantLib::Handle<QuantLib::Quote>& fxSpot, const QuantLib::Handle<QuantLib::YieldTermStructure>& domesticTS,
+        const QuantLib::Handle<QuantLib::YieldTermStructure>& foreignTS, bool requireMonotoneVariance,
+        const bool firstApprox,
+        const std::vector <QuantLib::DeltaVolQuote::AtmType> atmType,
+        const std::vector <QuantLib::DeltaVolQuote::DeltaType> deltaType,
+        const QuantLib::Real delta,
+        const QuantLib::Period& switchTenor,
+        bool permanent)
+        : BlackVolTermStructure(properties, permanent)
+    {
+
+        //ATM-Types
+        QuantLib::DeltaVolQuote::AtmType front_atmType = atmType[0];
+        QuantLib::DeltaVolQuote::AtmType rear_atmType = atmType[1];
+
+
+        QuantLib::DeltaVolQuote::DeltaType front_deltaType = deltaType[0];
+        QuantLib::DeltaVolQuote::DeltaType rear_deltaType = deltaType[1];
+
+
+
+        
+        libraryObject_ = boost::shared_ptr<QuantLib::Extrapolator>(new
+            QuantLib::FxBlackVannaVolgaVolatilitySurface(
+                referenceDate, dates,
+                atmVols, rr,
+                bf, dayCounter, cal,
+                fxSpot, domesticTS,
+                foreignTS, 
+                requireMonotoneVariance,
+                firstApprox,
+                front_atmType,
+                front_deltaType,
+                delta, 
+                switchTenor,
+                rear_atmType,
+                rear_deltaType));
+         
+
+
+    };
+
+
+
+
 }
