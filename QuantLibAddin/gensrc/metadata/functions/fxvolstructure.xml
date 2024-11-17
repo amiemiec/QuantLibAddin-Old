@@ -107,7 +107,7 @@
 				<Parameter name='Delta' default='0.25'>
 					<type>QuantLib::Real</type>
 					<tensorRank>scalar</tensorRank>
-					<description>delta.</description>
+					<description>The option's delta corresponding to the risk reversal and butterfly quotes.</description>
 				</Parameter>
 				<Parameter name='SwitchTenor' examplevalue='"0*Days"'>
 					<type>QuantLib::Period</type>
@@ -169,7 +169,7 @@
 				<tensorRank>scalar</tensorRank>
 				<description>calendar.</description>
 			</Parameter>
-			<Parameter name='Spot'>
+			<Parameter name='Spot' examplevalue='1.07'>
 				<type>QuantLib::Quote</type>
 				<superType>libToHandle</superType>
 				<tensorRank>scalar</tensorRank>
@@ -187,17 +187,17 @@
 				<tensorRank>scalar</tensorRank>
 				<description>foreign discounting yield term structure object ID.</description>
 			</Parameter>
-			<Parameter name='DeltaTypes'>
+			<Parameter name='DeltaTypes' default ='"Fwd"'>
 				<type>QuantLib::DeltaVolQuote::DeltaType</type>
 				<tensorRank>vector</tensorRank>
-				<description>front delta type.</description>
+				<description>vector of delta types (front, rear, atm).</description>
 			</Parameter>
 			<Parameter name='AtmTypes' default='"AtmDeltaNeutral"'>
 				<type>QuantLib::DeltaVolQuote::AtmType</type>
 				<tensorRank>vector</tensorRank>
-				<description>front delta type.</description>
+				<description>vector of atm types (front, rear).</description>
 			</Parameter>
-			<Parameter name='SwitchTenor'>
+			<Parameter name='SwitchTenor' examplevalue ='"0D"'>
 				<type>QuantLib::Period</type>
 				<tensorRank>scalar</tensorRank>
 				<description>switch tenor, default = 0d.</description>
