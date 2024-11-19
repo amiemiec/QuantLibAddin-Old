@@ -154,6 +154,11 @@
 					  <tensorRank>scalar</tensorRank>
 					  <description>range'supper bound.</description>
 				  </Parameter>
+				  <Parameter name='Lockback' default='5'>
+					  <type>QuantLib::Natural</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>lockback period.</description>
+				  </Parameter>
 				  <Parameter name='RefPeriodStart' default='QuantLib::Date()'>
 					  <type>QuantLib::Date</type>
 					  <tensorRank>scalar</tensorRank>
