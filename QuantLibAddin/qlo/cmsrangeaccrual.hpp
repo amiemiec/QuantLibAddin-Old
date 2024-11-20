@@ -24,10 +24,14 @@
 #include<qlo/index.hpp>
 #include <ql/types.hpp>
 
+#include <qlo/leg.hpp>
+#include <ql/time/businessdayconvention.hpp>
+
 namespace QuantLib {
     class Date;
     class Index;
     class SwapIndex;
+    class Schedule;
     class YieldTermStructure;
     class Calendar;
     class Quote;
@@ -86,6 +90,25 @@ namespace QuantLibAddin {
             const QuantLib::Date& refPeriodStart,
             const QuantLib::Date& refPeriodEnd,
             const QuantLib::Date& exCouponDate,
+            bool permanent);
+    };
+
+
+    class CmsRangeAccrualLeg : public Leg {
+    public:
+        CmsRangeAccrualLeg(
+            const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+            QuantLib::BusinessDayConvention paymentConvention,
+            const QuantLib::DayCounter& paymentDayCounter,
+            const std::vector<QuantLib::Real>& nominals,
+            const boost::shared_ptr<QuantLib::Schedule>& schedule,
+            const std::vector<QuantLib::Rate>& fixedRates,
+            const boost::shared_ptr<QuantLib::SwapIndex>& index,
+            const std::vector<QuantLib::Natural>& fixingDays,
+            const std::vector<QuantLib::Rate>& lowerTriggers,
+            const std::vector<QuantLib::Rate>& upperTriggers,
+            const std::vector<QuantLib::Natural>& observationsShifters,
+            const boost::shared_ptr<QuantLib::CmsRangeAccrualFixedCouponPricer>& pricer,
             bool permanent);
     };
 

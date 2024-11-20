@@ -107,6 +107,31 @@ CmsRangeAccrualFixedCoupon::CmsRangeAccrualFixedCoupon(
         
      }
  
+CmsRangeAccrualLeg::CmsRangeAccrualLeg(
+    const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+    QuantLib::BusinessDayConvention paymentConvention,
+    const QuantLib::DayCounter& paymentDayCounter,
+    const std::vector<QuantLib::Real>& nominals,
+    const boost::shared_ptr<QuantLib::Schedule>& schedule,
+    const std::vector<QuantLib::Rate>& fixedRates,
+    const boost::shared_ptr<QuantLib::SwapIndex>& index,
+    const std::vector<QuantLib::Natural>& fixingDays,
+    const std::vector<QuantLib::Rate>& lowerTriggers,
+    const std::vector<QuantLib::Rate>& upperTriggers,
+    const std::vector<QuantLib::Natural>& observationsShifters,
+    const boost::shared_ptr<QuantLib::CmsRangeAccrualFixedCouponPricer>& pricer,
+    bool permanent) : Leg(properties, permanent)
+    {
+       libraryObject_ = boost::shared_ptr<QuantLib::Leg>(new QuantLib::Leg(QuantLib::CmsRangeAccrualLeg(*schedule, index, pricer)
+            .withNotionals(nominals)
+            .withPaymentAdjustment(paymentConvention)
+            .withPaymentDayCounter(paymentDayCounter) 
+            .withFixedRates(fixedRates)
+            .withFixingDays(fixingDays)
+            .withLowerTriggers(lowerTriggers)
+            .withUpperTriggers(upperTriggers)
+            .withObservationShifters(observationsShifters)));
+    }
 
 
 
