@@ -3,6 +3,7 @@
   <displayName>fxRangeAccrual</displayName>
   <xlFunctionWizardCategory>QuantLib - Financial</xlFunctionWizardCategory>
 	<serializationIncludes>
+		<include>qlo/schedule.hpp</include>
 		<include>qlo/fxrangeaccrual.hpp</include>
 		<include>qlo/termstructures.hpp</include>
 		<include>qlo/handleimpl.hpp</include>
@@ -13,7 +14,8 @@
 		<include>ql/cashflows/fxrangeaccrualfixed.hpp</include>
 	</serializationIncludes>
   <addinIncludes>
-		<include>qlo/fxrangeaccrual.hpp</include>
+	    <include>qlo/schedule.hpp</include>
+	    <include>qlo/fxrangeaccrual.hpp</include>
 		<include>qlo/termstructures.hpp</include>
 		<include>qlo/handleimpl.hpp</include>
 
@@ -220,6 +222,77 @@
 		  </ReturnValue>
 	  </Member>
 
+	  
+	  <Constructor name='qlFxRangeAccrualLeg'>
+		  <libraryFunction>FxRangeAccrualLeg</libraryFunction>
+		  <SupportedPlatforms>
+			  <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+			  <SupportedPlatform name='Excel'/>
+			  <SupportedPlatform name='Cpp'/>
+			  <SupportedPlatform name='Calc'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='PaymentBDC' default='"Following"'>
+					  <type>QuantLib::BusinessDayConvention</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>payment business day convention.</description>
+				  </Parameter>
+				  <Parameter name='DayCounter' exampleValue='Actual/Actual (ISMA)'>
+					  <type>QuantLib::DayCounter</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>Payment DayCounter ID.</description>
+				  </Parameter>
+				  <Parameter name='Nominals' exampleValue='1000000'>
+					  <type>double</type>
+					  <tensorRank>vector</tensorRank>
+					  <description>Nominal amount vector.</description>
+				  </Parameter>
+				  <Parameter name='ScheduleID'>
+					  <type>QuantLib::Schedule</type>
+					  <superType>libraryClass</superType>
+					  <tensorRank>scalar</tensorRank>
+					  <description>Schedule object ID.</description>
+				  </Parameter>
+				  <Parameter name='FixedRates' default='0.0'>
+					  <type>QuantLib::Rate</type>
+					  <tensorRank>vector</tensorRank>
+					  <description>vector of fixed rates.</description>
+				  </Parameter>
+				  <Parameter name='FxIndex'>
+					  <type>QuantLib::FxIndex</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>underlying FxIndex object ID.</description>
+				  </Parameter>
+				  <Parameter name='FixingDays' default='std::vector&lt;QuantLib::Natural&gt;()'>
+					  <type>QuantLib::Natural</type>
+					  <tensorRank>vector</tensorRank>
+					  <description>fixing days (e.g. 2).</description>
+				  </Parameter>
+				  <Parameter name='LowerStrikes' default='std::vector&lt;QuantLib::Rate&gt;()'>
+					  <type>QuantLib::Rate</type>
+					  <tensorRank>vector</tensorRank>
+					  <description>lower strikes.</description>
+				  </Parameter>
+				  <Parameter name='UpperStrikes' default='std::vector&lt;QuantLib::Rate&gt;()'>
+					  <type>QuantLib::Rate</type>
+					  <tensorRank>vector</tensorRank>
+					  <description>upper strikes.</description>
+				  </Parameter>
+				  <Parameter name='ObservationShifters' default='std::vector&lt;QuantLib::Natural&gt;()'>
+					  <type>QuantLib::Natural</type>
+					  <tensorRank>vector</tensorRank>
+					  <description>number of lookback days (e.g. 5).</description>
+				  </Parameter>
+				  <Parameter name='RaPricer'>
+					  <type>QuantLib::FxRangeAccrualFixedCouponPricer</type>
+					  <superType>libraryClass</superType>
+					  <tensorRank>scalar</tensorRank>
+					  <description>Range Accrual Pricer object ID.</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+	  </Constructor>
 
 
 

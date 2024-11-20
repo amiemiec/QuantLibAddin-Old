@@ -1,10 +1,8 @@
 /* -*- mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 
 /*
- Copyright (C) 2006, 2007 Ferdinando Ametrano
- Copyright (C) 2006 Katiuscia Manzoni
- Copyright (C) 2005 Eric Ehlers
- Copyright (C) 2005 Plamen Neykov
+* 
+ Copyright (C) 2024 André Miemiec
 
  This file is part of QuantLib, a free-software/open-source library
  for financial quantitative analysts and developers - http://quantlib.org/
@@ -111,6 +109,31 @@ FxRangeAccrualFixedCoupon::FxRangeAccrualFixedCoupon(
         
      }
  
+    FxRangeAccrualLeg::FxRangeAccrualLeg(
+        const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+        QuantLib::BusinessDayConvention paymentConvention,
+        const QuantLib::DayCounter& paymentDayCounter,
+        const std::vector<QuantLib::Real>& nominals,
+        const boost::shared_ptr<QuantLib::Schedule>& schedule,
+        const std::vector<QuantLib::Rate>& fixedRates,
+        const boost::shared_ptr<QuantLib::FxIndex>& index,
+        const std::vector<QuantLib::Natural>& fixingDays,
+        const std::vector<QuantLib::Rate>& lowerTriggers,
+        const std::vector<QuantLib::Rate>& upperTriggers,
+        const std::vector<QuantLib::Natural>& observationsShifters,
+        const boost::shared_ptr<QuantLib::FxRangeAccrualFixedCouponPricer>& pricer,
+        bool permanent) : Leg(properties, permanent)
+    {
+        libraryObject_ = boost::shared_ptr<QuantLib::Leg>(new QuantLib::Leg(QuantLib::FxRangeAccrualLeg(*schedule, index, pricer)
+            .withNotionals(nominals)
+            .withPaymentAdjustment(paymentConvention)
+            .withPaymentDayCounter(paymentDayCounter)
+            .withFixedRates(fixedRates)
+            .withFixingDays(fixingDays)
+            .withLowerTriggers(lowerTriggers)
+            .withUpperTriggers(upperTriggers)
+            .withObservationShifters(observationsShifters)));
+    }
 
 
 
