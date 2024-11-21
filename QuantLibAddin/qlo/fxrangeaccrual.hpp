@@ -87,7 +87,7 @@ namespace QuantLibAddin {
             const boost::shared_ptr<QuantLib::FxIndex>& fxIndex,
             QuantLib::Real lowerTrigger,
             QuantLib::Real upperTrigger,
-            QuantLib::Natural lookback,
+            QuantLib::Natural shifter,
             // optional FixedRateCoupon
             const QuantLib::Date& refPeriodStart,
             const QuantLib::Date& refPeriodEnd,

@@ -133,10 +133,10 @@
 					  <tensorRank>scalar</tensorRank>
 					  <description>range'supper bound.</description>
 				  </Parameter>
-				  <Parameter name='Lockout'>
+				  <Parameter name='Shifter'>
 					  <type>QuantLib::Natural</type>
 					  <tensorRank>scalar</tensorRank>
-					  <description>crystallized lockout days before period end.</description>
+					  <description>number of backward shift days (e.g. 5).</description>
 				  </Parameter>
 				  <Parameter name='RefPeriodStart' default='QuantLib::Date()'>
 					  <type>QuantLib::Date</type>
@@ -258,7 +258,7 @@
 					<Parameter name='ObservationShifters' default='std::vector&lt;QuantLib::Natural&gt;()'>
 						<type>QuantLib::Natural</type>
 						<tensorRank>vector</tensorRank>
-						<description>number of lookback days (e.g. 5).</description>
+						<description>number of backward shift days (e.g. 5).</description>
 					</Parameter>
 					<Parameter name='RaPricer'>
 						<type>QuantLib::CmsRangeAccrualFixedCouponPricer</type>

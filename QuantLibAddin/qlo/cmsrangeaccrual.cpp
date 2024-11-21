@@ -78,7 +78,7 @@ CmsRangeAccrualFixedCoupon::CmsRangeAccrualFixedCoupon(
          const boost::shared_ptr<QuantLib::SwapIndex>& cmsIndex,
          QuantLib::Real lowerTrigger,
          QuantLib::Real upperTrigger,
-         QuantLib::Natural lockout,
+         QuantLib::Natural shifter,
          // optional FixedRateCoupon
          const QuantLib::Date& refPeriodStart,
          const QuantLib::Date& refPeriodEnd,
@@ -96,7 +96,7 @@ CmsRangeAccrualFixedCoupon::CmsRangeAccrualFixedCoupon(
             cmsIndex,
             lowerTrigger,
             upperTrigger,
-            lockout,
+            shifter,
             refPeriodStart,
             refPeriodEnd,
             exCouponDate
