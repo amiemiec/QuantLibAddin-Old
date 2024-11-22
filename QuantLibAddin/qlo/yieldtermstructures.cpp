@@ -39,6 +39,7 @@
 #include <ql/math/interpolations/forwardflatinterpolation.hpp>
 #include <ql/math/interpolations/backwardflatinterpolation.hpp>
 #include <ql/math/interpolations/mixedinterpolation.hpp>
+#include <ql/experimental/termstructures/spreadyieldtermstructure.hpp>
 
 #include <boost/algorithm/string/case_conv.hpp>
 
@@ -669,6 +670,18 @@ namespace QuantLibAddin {
       traitsID_(to_upper_copy(traitsID)),
       interpolatorID_(to_upper_copy(interpolatorID))
     {
+    }
+
+
+    SpreadYTS::SpreadYTS(
+        const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+        const QuantLib::Handle<QuantLib::YieldTermStructure>& baseCurve,
+        const QuantLib::Handle<QuantLib::YieldTermStructure>& sprdCurve,
+        const QuantLib::Real alpha,
+        bool permanent)
+        : YieldTermStructure(properties, permanent) {
+        libraryObject_ = boost::shared_ptr<QuantLib::SpreadYTS>(
+            new QuantLib::SpreadYTS(baseCurve, sprdCurve, alpha));
     }
 
     // Stream operator to write a InterpolatedYieldCurvePair to a stream - for logging / error handling.

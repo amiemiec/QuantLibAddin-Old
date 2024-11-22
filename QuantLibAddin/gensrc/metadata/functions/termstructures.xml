@@ -653,5 +653,35 @@
       </ReturnValue>
     </Member>
 
+	<Constructor name='qlSpreadYTS'>
+		  <libraryFunction>SpreadYTS</libraryFunction>
+		  <description>Create compounded YTS evaluating discount factors e^-(z1+aplha*z2)t.</description>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+			  <SupportedPlatform name='Cpp'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='BaseCurve'>
+					  <type>QuantLib::YieldTermStructure</type>
+					  <superType>libToHandle</superType>
+					  <tensorRank>scalar</tensorRank>
+					  <description>YieldTermStructure for z1.</description>
+				  </Parameter>
+				  <Parameter name='SprdCurve'>
+					  <type>QuantLib::YieldTermStructure</type>
+					  <superType>libToHandle</superType>
+					  <tensorRank>scalar</tensorRank>
+					  <description>YieldTermStructure for z2.</description>
+				  </Parameter>
+				  <Parameter name='Alpha' default='1.0' const='False'>
+					  <type>QuantLib::Real</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>Factor to evaluate z1 + aplha z2.</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+	  </Constructor>
+
   </Functions>
 </Category>

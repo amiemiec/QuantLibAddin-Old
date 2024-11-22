@@ -164,6 +164,17 @@ namespace QuantLibAddin {
     };
 
 
+
+    class SpreadYTS : public YieldTermStructure {
+    public:
+        SpreadYTS(const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+            const QuantLib::Handle<QuantLib::YieldTermStructure>& baseCurve,
+            const QuantLib::Handle<QuantLib::YieldTermStructure>& sprdCurve,
+            const QuantLib::Real alpha,
+            bool permanent);
+    };
+
+
     // A pair indicating a combination of Traits / Interpolator.
     typedef std::pair<InterpolatedYieldCurve::Traits, InterpolatedYieldCurve::Interpolator> InterpolatedYieldCurvePair;
 
