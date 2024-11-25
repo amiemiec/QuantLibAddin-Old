@@ -85,7 +85,7 @@ namespace QuantLibAddin {
             const boost::shared_ptr<QuantLib::SwapIndex>& swapIndex,
             QuantLib::Real lowerTrigger,
             QuantLib::Real upperTrigger,
-            QuantLib::Natural shifter,
+            QuantLib::Natural lockout,
             // optional FixedRateCoupon
             const QuantLib::Date& refPeriodStart,
             const QuantLib::Date& refPeriodEnd,
@@ -107,7 +107,7 @@ namespace QuantLibAddin {
             const std::vector<QuantLib::Natural>& fixingDays,
             const std::vector<QuantLib::Rate>& lowerTriggers,
             const std::vector<QuantLib::Rate>& upperTriggers,
-            const std::vector<QuantLib::Natural>& observationsShifters,
+            const std::vector<QuantLib::Natural>& observationsLockouts,
             const boost::shared_ptr<QuantLib::CmsRangeAccrualFixedCouponPricer>& pricer,
             bool permanent);
     };

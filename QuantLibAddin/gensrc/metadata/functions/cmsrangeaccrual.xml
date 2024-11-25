@@ -133,10 +133,10 @@
 					  <tensorRank>scalar</tensorRank>
 					  <description>range'supper bound.</description>
 				  </Parameter>
-				  <Parameter name='Shifter'>
+				  <Parameter name='Lockout' default='5'>
 					  <type>QuantLib::Natural</type>
 					  <tensorRank>scalar</tensorRank>
-					  <description>number of backward shift days (e.g. 5).</description>
+					  <description>lockout days (e.g. 5).</description>
 				  </Parameter>
 				  <Parameter name='RefPeriodStart' default='QuantLib::Date()'>
 					  <type>QuantLib::Date</type>
@@ -255,10 +255,10 @@
 						<tensorRank>vector</tensorRank>
 						<description>upper strikes.</description>
 					</Parameter>
-					<Parameter name='ObservationShifters' default='std::vector&lt;QuantLib::Natural&gt;()'>
+					<Parameter name='ObservationLockouts' default='std::vector&lt;QuantLib::Natural&gt;()'>
 						<type>QuantLib::Natural</type>
 						<tensorRank>vector</tensorRank>
-						<description>number of backward shift days (e.g. 5).</description>
+						<description>vector of lockout days (e.g. 5).</description>
 					</Parameter>
 					<Parameter name='RaPricer'>
 						<type>QuantLib::CmsRangeAccrualFixedCouponPricer</type>

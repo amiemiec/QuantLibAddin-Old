@@ -78,7 +78,7 @@ CmsRangeAccrualFixedCoupon::CmsRangeAccrualFixedCoupon(
          const boost::shared_ptr<QuantLib::SwapIndex>& cmsIndex,
          QuantLib::Real lowerTrigger,
          QuantLib::Real upperTrigger,
-         QuantLib::Natural shifter,
+         QuantLib::Natural lockout,
          // optional FixedRateCoupon
          const QuantLib::Date& refPeriodStart,
          const QuantLib::Date& refPeriodEnd,
@@ -96,7 +96,7 @@ CmsRangeAccrualFixedCoupon::CmsRangeAccrualFixedCoupon(
             cmsIndex,
             lowerTrigger,
             upperTrigger,
-            shifter,
+            lockout,
             refPeriodStart,
             refPeriodEnd,
             exCouponDate
@@ -115,7 +115,7 @@ CmsRangeAccrualLeg::CmsRangeAccrualLeg(
     const std::vector<QuantLib::Natural>& fixingDays,
     const std::vector<QuantLib::Rate>& lowerTriggers,
     const std::vector<QuantLib::Rate>& upperTriggers,
-    const std::vector<QuantLib::Natural>& observationsShifters,
+    const std::vector<QuantLib::Natural>& observationsLockouts,
     const boost::shared_ptr<QuantLib::CmsRangeAccrualFixedCouponPricer>& pricer,
     bool permanent) : Leg(properties, permanent)
     {
@@ -127,7 +127,7 @@ CmsRangeAccrualLeg::CmsRangeAccrualLeg(
             .withFixingDays(fixingDays)
             .withLowerTriggers(lowerTriggers)
             .withUpperTriggers(upperTriggers)
-            .withObservationShifters(observationsShifters)));
+            .withObservationLockouts(observationsLockouts)));
     }
 
 
