@@ -1,0 +1,96 @@
+<Category name='piecewisedefaultcurve'>
+  <description>functions to construct and use PiecewiseDefaultCurve objects.</description>
+  <displayName>Piecewise Default Curves</displayName>
+  <xlFunctionWizardCategory>QuantLib - Financial</xlFunctionWizardCategory>
+  <serializationIncludes>
+    <include>qlo/piecewisedefaultcurve.hpp</include>
+    <include>qlo/conversions/coercetermstructure.hpp</include>
+    <include>ql/termstructures/credit/piecewisedefaultcurve.hpp</include>
+    <include>ql/termstructures/defaulttermstructure.hpp</include>    
+  </serializationIncludes>
+  <addinIncludes>
+    <include>qlo/piecewisedefaultcurve.hpp</include>    
+    <include>qlo/handleimpl.hpp</include>
+    <include>qlo/conversions/coercetermstructure.hpp</include>
+    <include>ql/termstructures/credit/piecewisedefaultcurve.hpp</include>
+    <include>ql/termstructures/defaulttermstructure.hpp</include>
+  </addinIncludes>
+  <copyright>
+    Copyright (C) 
+  </copyright>
+  <Functions>
+
+    <!-- PiecewiseDefaultCurve constructor -->
+
+    <Constructor name='qlPiecewiseDefaultCurve'>
+      <libraryFunction>PiecewiseDefaultCurve</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Cpp'/>
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='ReferenceDate'>
+            <type>QuantLib::Date</type>
+            <tensorRank>scalar</tensorRank>
+            <description>number of days to advance from EvaluationDate (usually zero or two): it fixes the date at which the discount factor = 1.0.</description>
+          </Parameter>
+          <Parameter name='Helpers'>
+            <type>QuantLib::DefaultProbabilityHelper</type>
+            <tensorRank>vector</tensorRank>
+            <description>vector of rate-helpers.</description>
+          </Parameter>
+          <Parameter name='DayCounter' default='"Actual/365 (Fixed)"'>
+            <type>QuantLib::DayCounter</type>
+            <tensorRank>scalar</tensorRank>
+            <description>DayCounter ID.</description>
+          </Parameter>
+          <Parameter name='TraitsID' default='"SurvivalProbability"'>
+            <type>string</type>
+            <tensorRank>scalar</tensorRank>
+            <description>SurvivalProbability.</description>
+          </Parameter>
+          <Parameter name='InterpolatorID' default='"Linear"'>
+            <type>string</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Linear.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+    <Member name='qlPiecewiseDefaultCurveSurvivalProbability' type='QuantLib::DefaultProbabilityTermStructure'>
+      <description>piecewise default curve survival probability.</description>
+      <libraryFunction>survivalProbability</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <SupportedPlatform name='Guile'/>
+        <SupportedPlatform name='C'/>
+        <SupportedPlatform name='Cpp'/>
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters>
+        <Parameter name='ReferenceDate'>
+          <type>QuantLib::Date</type>
+          <tensorRank>scalar</tensorRank>
+          <description>number of days to advance from EvaluationDate (usually zero or two): it fixes the date at which the discount factor = 1.0.</description>
+        </Parameter>
+        <Parameter name='PaysAtDefaultTime' exampleValue='true'>
+          <type>bool</type>
+          <tensorRank>scalar</tensorRank>
+          <description>Pays At Default Time.</description>
+        </Parameter>
+          </Parameters>
+      </ParameterList>
+      <ReturnValue>
+        <type>double</type>
+        <tensorRank>scalar</tensorRank>
+      </ReturnValue>
+    </Member>
+    
+  </Functions>
+
+</Category>

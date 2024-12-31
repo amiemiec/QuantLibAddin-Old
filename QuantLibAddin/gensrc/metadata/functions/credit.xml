@@ -14,7 +14,6 @@
     <include>qlo/defaultbasket.hpp</include>
     <include>qlo/exercise.hpp</include>
 
-    <include>ql/termstructures/credit/defaultprobabilityhelpers.hpp</include>
     <include>ql/pricingengines/credit/midpointcdsengine.hpp</include>
     <include>ql/experimental/credit/basket.hpp</include>
     <include>ql/experimental/credit/cdsoption.hpp</include>
