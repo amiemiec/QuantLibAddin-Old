@@ -7,6 +7,7 @@
 #include <qlo/interpolation2D.hpp>
 #include <qlo/ratehelpers.hpp>
 #include <qlo/piecewiseyieldcurve.hpp>
+#include <qlo/piecewiseinflationcurve.hpp>
 #include <qlo/indexes/swapindex.hpp>
 
 #include <ql/cashflows/cashflows.hpp>
@@ -27,12 +28,15 @@
 #include <ql/math/optimization/endcriteria.hpp>
 #include <ql/termstructures/volatility/swaption/cmsmarketcalibration.hpp>
 #include <ql/time/calendars/all.hpp>
+#include <ql/time/calendars/jointcalendar.hpp>
 #include <ql/time/daycounters/all.hpp>
 #include <ql/prices.hpp>
 #include <ql/default.hpp> // RL ADD 2010-07-15
 #include <ql/experimental/credit/defaulttype.hpp>
 #include <ql/experimental/fx/deltavolquote.hpp>
 #include <ql/termstructures/volatility/fx/blackvolsurfacedelta.hpp>
+#include <ql/indexes/inflationindex.hpp>
+#include <ql/indexes/region.hpp>
 
 #include <oh/enumerations/typefactory.hpp>
 

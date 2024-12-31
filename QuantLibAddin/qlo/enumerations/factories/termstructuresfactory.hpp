@@ -26,6 +26,14 @@
 #include <ql/types.hpp>
 #include <ql/termstructures/yieldtermstructure.hpp>
 #include <ql/math/interpolations/mixedinterpolation.hpp>
+//++AMI
+#include <ql/termstructures/defaulttermstructure.hpp>
+//AMI++
+//++AMI
+#include <ql/termstructures/inflationtermstructure.hpp>
+#include <ql/termstructures/inflation/interpolatedzeroinflationcurve.hpp>
+//AMI++
+
 
 namespace QuantLib {
     class Calendar;
@@ -37,6 +45,17 @@ namespace QuantLib {
     class BootstrapHelper;
 
     typedef BootstrapHelper<YieldTermStructure> RateHelper;
+
+    //++AMI
+    class DefaultProbabilityTermStructure;
+    typedef BootstrapHelper<DefaultProbabilityTermStructure> DefaultProbabilityHelper;
+    //AMI++
+
+    //++AMI
+    class ZeroInflationTermStructure;
+    typedef BootstrapHelper<ZeroInflationTermStructure> InflationZeroHelper;
+    //AMI++
+
 }
 
 namespace ObjectHandler {
@@ -78,6 +97,78 @@ namespace ObjectHandler {
         using RegistryManager<QuantLib::YieldTermStructure,
                               EnumPairRegistry>::registerType;
     };
+
+
+    //AMI++
+    typedef boost::shared_ptr<QuantLib::DefaultProbabilityTermStructure>(*DefaultProbabilityTermStructureConstructor)(
+        const QuantLib::Date& referenceDate,
+        const std::vector<boost::shared_ptr<QuantLib::DefaultProbabilityHelper> >& instruments,
+        const QuantLib::DayCounter& dayCounter);
+
+
+    template<>
+    class Create<boost::shared_ptr<QuantLib::DefaultProbabilityTermStructure> > :
+        private RegistryManager<QuantLib::DefaultProbabilityTermStructure,
+        EnumPairRegistry> {
+    public:
+        boost::shared_ptr<QuantLib::DefaultProbabilityTermStructure> operator() (
+            const std::string& traitsID,
+            const std::string& interpolatorID,
+            const QuantLib::Date& referenceDate,
+            const std::vector<boost::shared_ptr<QuantLib::DefaultProbabilityHelper> >& instruments,
+            const QuantLib::DayCounter& dayCounter) {
+            KeyPair key(traitsID, interpolatorID);
+            DefaultProbabilityTermStructureConstructor defaultProbabilityTermStructureConstructor =
+                reinterpret_cast<DefaultProbabilityTermStructureConstructor>(getType(key));
+
+            return defaultProbabilityTermStructureConstructor(referenceDate,
+                instruments,
+                dayCounter);
+        }
+        using RegistryManager<QuantLib::DefaultProbabilityTermStructure,
+            EnumPairRegistry>::registerType;
+    };
+    //++AMI
+
+
+    //AMI++
+    typedef boost::shared_ptr<QuantLib::ZeroInflationTermStructure>(*ZeroInflationTermStructureConstructor)(
+        const QuantLib::Date& referenceDate,
+        const QuantLib::Date& baseDate,
+        const QuantLib::Frequency& frequency,
+        const std::vector<boost::shared_ptr<QuantLib::InflationZeroHelper> >& instruments,
+        const QuantLib::DayCounter& dayCounter);
+
+
+    template<>
+    class Create<boost::shared_ptr<QuantLib::ZeroInflationTermStructure> > :
+        private RegistryManager<QuantLib::ZeroInflationTermStructure,
+        EnumPairRegistry> {
+    public:
+        boost::shared_ptr<QuantLib::ZeroInflationTermStructure> operator() (
+            const std::string& traitsID,
+            const std::string& interpolatorID,
+            const QuantLib::Date& referenceDate,
+            const QuantLib::Date& baseDate,
+            const QuantLib::Frequency frequency,
+            const std::vector<boost::shared_ptr<QuantLib::InflationZeroHelper> >& instruments,
+            const QuantLib::DayCounter& dayCounter) {
+            KeyPair key(traitsID, interpolatorID);
+            ZeroInflationTermStructureConstructor zeroInflationTermStructureConstructor =
+                reinterpret_cast<ZeroInflationTermStructureConstructor>(getType(key));
+
+            return zeroInflationTermStructureConstructor(referenceDate,
+                baseDate,
+                frequency,
+                instruments,
+                dayCounter);
+        }
+        using RegistryManager<QuantLib::ZeroInflationTermStructure,
+            EnumPairRegistry>::registerType;
+    };
+    //++AMI
+
+
 
  }
 

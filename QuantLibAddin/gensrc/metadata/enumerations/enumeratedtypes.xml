@@ -70,6 +70,10 @@
           <string>CDS</string>
           <value>QuantLib::DateGeneration::CDS</value>
         </EnumeratedType>
+		<EnumeratedType>
+          <string>CDS2015</string>
+          <value>QuantLib::DateGeneration::CDS2015</value>
+		</EnumeratedType>
       </EnumeratedTypes>
     </EnumeratedTypeGroup>
 
@@ -185,7 +189,14 @@
           <value>QuantLib::NullCalendar()</value>
         </EnumeratedType>
 
-        <EnumeratedType>
+		  <EnumeratedType>
+			  <string>TAR_LDN_NY</string>
+			  <value>QuantLib::JointCalendar(QuantLib::TARGET(),QuantLib::UnitedKingdom(QuantLib::UnitedKingdom::Exchange),QuantLib::UnitedStates(QuantLib::UnitedStates::NYSE))</value>
+		  </EnumeratedType>
+
+
+
+		  <EnumeratedType>
           <string>TARGET</string>
           <value>QuantLib::TARGET()</value>
         </EnumeratedType>
@@ -2211,8 +2222,105 @@
 	</EnumeratedTypeGroup>
 
 
-	  
-	  
+	  <EnumeratedTypeGroup type='QuantLib::JointCalendarRule'>
+		  <includeFile>oh/enumerations/typefactory.hpp</includeFile>
+		  <constructor>true</constructor>
+		  <EnumeratedTypes>
+			  <EnumeratedType>
+				  <string>JoinHolidays</string>
+				  <value>QuantLib::JointCalendarRule::JoinHolidays</value>
+			  </EnumeratedType>
+			  <EnumeratedType>
+				  <string>JoinBusinessDays</string>
+				  <value>QuantLib::JointCalendarRule::JoinBusinessDays</value>
+			  </EnumeratedType>
+		  </EnumeratedTypes>
+	  </EnumeratedTypeGroup>
+
+
+	  <EnumeratedTypeGroup type='QuantLib::CPI::InterpolationType'>
+		  <includeFile>oh/enumerations/typefactory.hpp</includeFile>
+		  <constructor>true</constructor>
+		  <EnumeratedTypes>
+			  <EnumeratedType>
+				  <string>AsIndex</string>
+				  <value>QuantLib::CPI::InterpolationType::AsIndex</value>
+			  </EnumeratedType>
+			  <EnumeratedType>
+				  <string>Flat</string>
+				  <value>QuantLib::CPI::InterpolationType::Flat</value>
+			  </EnumeratedType>
+			  <EnumeratedType>
+				  <string>Linear</string>
+				  <value>QuantLib::CPI::InterpolationType::Linear</value>
+			  </EnumeratedType>
+		  </EnumeratedTypes>
+	  </EnumeratedTypeGroup>
+
+
+
+	  <EnumeratedTypeGroup type='QuantLib::Region'>
+		  <includeFile>oh/enumerations/typefactory.hpp</includeFile>
+		  <constructor>true</constructor>
+		  <EnumeratedTypes>
+			  <EnumeratedType>
+				  <string>EU</string>
+				  <value>QuantLib::EURegion()</value>
+			  </EnumeratedType>
+			  <EnumeratedType>
+				  <string>UK</string>
+				  <value>QuantLib::UKRegion()</value>
+			  </EnumeratedType>
+			  <EnumeratedType>
+				  <string>US</string>
+				  <value>QuantLib::USRegion()</value>
+			  </EnumeratedType>
+		  </EnumeratedTypes>
+	  </EnumeratedTypeGroup>
+
+
+	  <EnumeratedTypeGroup type='QuantLibAddin::InterpolatedZeroInflationCurve::Traits'>
+		  <includeFile>qlo/inflationtermstructures.hpp</includeFile>
+		  <constructor>true</constructor>
+		  <EnumeratedTypes>
+			  <EnumeratedType>
+				  <string>ZeroInflation</string>
+				  <value>QuantLibAddin::InterpolatedZeroInflationCurve::ZeroInflation</value>
+			  </EnumeratedType>
+			  <EnumeratedType>
+				  <string>YoYInflation</string>
+				  <value>QuantLibAddin::InterpolatedZeroInflationCurve::YoYInflation</value>
+			  </EnumeratedType>
+		  </EnumeratedTypes>
+	  </EnumeratedTypeGroup>
+
+	  <EnumeratedTypeGroup type='QuantLibAddin::InterpolatedZeroInflationCurve::Interpolator'>
+		  <includeFile>qlo/inflationtermstructures.hpp</includeFile>
+		  <constructor>true</constructor>
+		  <EnumeratedTypes>
+			  <EnumeratedType>
+				  <string>BackwardFlat</string>
+				  <value>QuantLibAddin::InterpolatedZeroInflationCurve::BackwardFlat</value>
+			  </EnumeratedType>
+			  <EnumeratedType>
+				  <string>ForwardFlat</string>
+				  <value>QuantLibAddin::InterpolatedZeroInflationCurve::ForwardFlat</value>
+			  </EnumeratedType>
+			  <EnumeratedType>
+				  <string>Linear</string>
+				  <value>QuantLibAddin::InterpolatedZeroInflationCurve::Linear</value>
+			  </EnumeratedType>
+			  <EnumeratedType>
+				  <string>LogLinear</string>
+				  <value>QuantLibAddin::InterpolatedZeroInflationCurve::LogLinear</value>
+			  </EnumeratedType>
+		  </EnumeratedTypes>
+	  </EnumeratedTypeGroup>
+
+
+
+
+
   </EnumeratedTypeGroups>
 
 </root>

@@ -414,6 +414,70 @@
         </EnumeratedPair>
       </EnumeratedPairs>
     </EnumeratedPairGroup>
+	  
+	  
+	<EnumeratedPairGroup class="QuantLib::DefaultProbabilityTermStructure">
+		  <includeFile/>
+		  <EnumeratedPairs>
+			  <!--  Default probability based term structures  -->
+			  <EnumeratedPair>
+				  <id1>SurvivalProbability</id1>
+				  <id2>Linear</id2>
+				  <value>SURVIVALPROBABILITY_LINEAR_PiecewiseDefaultCurve</value>
+			  </EnumeratedPair>
+			  <EnumeratedPair>
+				  <id1>SurvivalProbability</id1>
+				  <id2>LogLinear</id2>
+				  <value>SURVIVALPROBABILITY_LOGLINEAR_PiecewiseDefaultCurve</value>
+			  </EnumeratedPair>
+			  <EnumeratedPair>
+				  <id1>HazardRate</id1>
+				  <id2>BackwardFlat</id2>
+				  <value>HAZARDRATE_BACKWARDFLAT_PiecewiseDefaultCurve</value>
+			  </EnumeratedPair>
+			  <EnumeratedPair>
+				  <id1>DefaultDensity</id1>
+				  <id2>BackwardFlat</id2>
+				  <value>DEFAULTDENSITY_BACKWARDFLAT_PiecewiseDefaultCurve</value>
+			  </EnumeratedPair>
+			  <EnumeratedPair>
+				  <id1>DefaultDensity</id1>
+				  <id2>Linear</id2>
+				  <value>DEFAULTDENSITY_LINEAR_PiecewiseDefaultCurve</value>
+			  </EnumeratedPair>
+		  </EnumeratedPairs>
+	  </EnumeratedPairGroup>
+
+
+	  <EnumeratedPairGroup class="QuantLib::ZeroInflationTermStructure">
+		  <includeFile/>
+		  <EnumeratedPairs>
+			  <EnumeratedPair>
+				  <id1>ZeroInflation</id1>
+				  <id2>ForwardFlat</id2>
+				  <value>ZEROINFLATION_FORWARDFLAT_PiecewiseZeroInflationCurve</value>
+			  </EnumeratedPair>
+			  <EnumeratedPair>
+				  <id1>ZeroInflation</id1>
+				  <id2>BackwardFlat</id2>
+				  <value>ZEROINFLATION_BACKWARDFLAT_PiecewiseZeroInflationCurve</value>
+			  </EnumeratedPair>
+			  <EnumeratedPair>
+				  <id1>ZeroInflation</id1>
+				  <id2>Linear</id2>
+				  <value>ZEROINFLATION_LINEAR_PiecewiseZeroInflationCurve</value>
+			  </EnumeratedPair>
+			  <EnumeratedPair>
+				  <id1>ZeroInflation</id1>
+				  <id2>LogLinear</id2>
+				  <value>ZEROINFLATION_LOGLINEAR_PiecewiseZeroInflationCurve</value>
+			  </EnumeratedPair>
+		  </EnumeratedPairs>
+	  </EnumeratedPairGroup>
+
+
+
+
   </EnumeratedPairGroups>
 
 </root>

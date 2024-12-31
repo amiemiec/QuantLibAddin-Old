@@ -29,10 +29,12 @@
 
 #include <qlo/yieldtermstructures.hpp>
 #include <qlo/defaulttermstructures.hpp>
+#include <qlo/inflationtermstructures.hpp>
 #include <qlo/swaptionvolstructure.hpp>
 
 #include <ql/termstructures/yieldtermstructure.hpp>
 #include <ql/termstructures/defaulttermstructure.hpp>
+#include <ql/termstructures/inflationtermstructure.hpp>
 #include <ql/termstructures/volatility/swaption/swaptionvolstructure.hpp>
 
 namespace QuantLibAddin {

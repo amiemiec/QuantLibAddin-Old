@@ -641,6 +641,63 @@ namespace QuantLibAddin {
             const QuantLib::DayCounter& yieldCurveDayCounter,
             QuantLib::Real yieldCurveAccuracy);
 
+
+    boost::shared_ptr<QuantLib::DefaultProbabilityTermStructure> SURVIVALPROBABILITY_LINEAR_PiecewiseDefaultCurve(
+        const QuantLib::Date& referenceDate,
+        const std::vector<boost::shared_ptr<QuantLib::DefaultProbabilityHelper> >& instruments,
+        const QuantLib::DayCounter& dayCounter);
+
+    boost::shared_ptr<QuantLib::DefaultProbabilityTermStructure> SURVIVALPROBABILITY_LOGLINEAR_PiecewiseDefaultCurve(
+        const QuantLib::Date& referenceDate,
+        const std::vector<boost::shared_ptr<QuantLib::DefaultProbabilityHelper> >& instruments,
+        const QuantLib::DayCounter& dayCounter);
+
+    boost::shared_ptr<QuantLib::DefaultProbabilityTermStructure> HAZARDRATE_BACKWARDFLAT_PiecewiseDefaultCurve(
+        const QuantLib::Date& referenceDate,
+        const std::vector<boost::shared_ptr<QuantLib::DefaultProbabilityHelper> >& instruments,
+        const QuantLib::DayCounter& dayCounter);
+
+    boost::shared_ptr<QuantLib::DefaultProbabilityTermStructure> DEFAULTDENSITY_BACKWARDFLAT_PiecewiseDefaultCurve(
+        const QuantLib::Date& referenceDate,
+        const std::vector<boost::shared_ptr<QuantLib::DefaultProbabilityHelper> >& instruments,
+        const QuantLib::DayCounter& dayCounter);
+
+    boost::shared_ptr<QuantLib::DefaultProbabilityTermStructure> DEFAULTDENSITY_LINEAR_PiecewiseDefaultCurve(
+        const QuantLib::Date& referenceDate,
+        const std::vector<boost::shared_ptr<QuantLib::DefaultProbabilityHelper> >& instruments,
+        const QuantLib::DayCounter& dayCounter);
+
+
+    boost::shared_ptr<QuantLib::ZeroInflationTermStructure> ZEROINFLATION_BACKWARDFLAT_PiecewiseZeroInflationCurve(
+        const QuantLib::Date& referenceDate,
+        const QuantLib::Date& baseDate,
+        const QuantLib::Frequency& frequency,
+        const std::vector<boost::shared_ptr<QuantLib::InflationZeroHelper> >& instruments,
+        const QuantLib::DayCounter& dayCounter);
+
+    boost::shared_ptr<QuantLib::ZeroInflationTermStructure> ZEROINFLATION_FORWARDFLAT_PiecewiseZeroInflationCurve(
+        const QuantLib::Date& referenceDate,
+        const QuantLib::Date& baseDate,
+        const QuantLib::Frequency& frequency,
+        const std::vector<boost::shared_ptr<QuantLib::InflationZeroHelper> >& instruments,
+        const QuantLib::DayCounter& dayCounter);
+
+
+    boost::shared_ptr<QuantLib::ZeroInflationTermStructure> ZEROINFLATION_LINEAR_PiecewiseZeroInflationCurve(
+        const QuantLib::Date& referenceDate,
+        const QuantLib::Date& baseDate,
+        const QuantLib::Frequency& frequency,
+        const std::vector<boost::shared_ptr<QuantLib::InflationZeroHelper> >& instruments,
+        const QuantLib::DayCounter& dayCounter);
+
+    boost::shared_ptr<QuantLib::ZeroInflationTermStructure> ZEROINFLATION_LOGLINEAR_PiecewiseZeroInflationCurve(
+        const QuantLib::Date& referenceDate,
+        const QuantLib::Date& baseDate,
+        const QuantLib::Frequency& frequency,
+        const std::vector<boost::shared_ptr<QuantLib::InflationZeroHelper> >& instruments,
+        const QuantLib::DayCounter& dayCounter);
+
+
 }
 
 #endif
