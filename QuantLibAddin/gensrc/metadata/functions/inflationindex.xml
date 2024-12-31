@@ -1,0 +1,190 @@
+<Category name='inflationindex'>
+  <description>functions to construct and use an inflation index objects.</description>
+  <displayName>InflationIndices</displayName>
+  <xlFunctionWizardCategory>QuantLib - Financial</xlFunctionWizardCategory>
+  <serializationIncludes>
+	  <include>qlo/handleimpl.hpp</include>
+	  <include>qlo/timeseries.hpp</include>
+	  <include>qlo/inflationindex.hpp</include>
+	  <include>qlo/conversions/coercetermstructure.hpp</include>
+	  <include>qlo/indexes/inflation/euhicp.hpp</include>
+
+
+	  <include>ql/indexes/region.hpp</include>
+	  <include>ql/indexes/inflationindex.hpp</include>
+	  <include>ql/termstructures/inflation/interpolatedzeroinflationcurve.hpp</include>
+
+	  <include>ql/indexes/inflation/euhicp.hpp</include>
+
+  </serializationIncludes>
+  <addinIncludes>
+	  <include>qlo/handleimpl.hpp</include>
+	  <include>qlo/timeseries.hpp</include>
+	  <include>qlo/conversions/coercetermstructure.hpp</include>
+	  <include>qlo/inflationindex.hpp</include>
+	  <include>qlo/indexes/inflation/euhicp.hpp</include>
+
+	  <include>ql/indexes/region.hpp</include>
+	  <include>ql/indexes/inflationindex.hpp</include>
+	  <include>ql/termstructures/inflation/interpolatedzeroinflationcurve.hpp</include>
+
+	  <include>ql/indexes/inflation/euhicp.hpp</include>
+
+  </addinIncludes>
+  <copyright>
+    Copyright (C) 2006, 2007, 2008, 2009, 2010 Ferdinando Ametrano
+    Copyright (C) 2006 Katiuscia Manzoni
+    Copyright (C) 2005, 2007 Eric Ehlers
+    Copyright (C) 2005 Plamen Neykov
+  </copyright>
+  <Functions>
+
+    <!-- Index interface -->
+
+
+    <!-- InflationIndex constructor -->
+
+
+	  <Constructor name='qlZeroInflationIndex'>
+      <libraryFunction>ZeroInflationIndex</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <SupportedPlatform name='Cpp'/>
+      </SupportedPlatforms>
+      <processorName>IndexProcessor</processorName>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='FamilyName' exampleValue='EURHCPIxT'>
+            <type>string</type>
+            <tensorRank>scalar</tensorRank>
+            <description>index family name.</description>
+          </Parameter>
+		  <Parameter name='GeoLocation'>
+			<type>QuantLib::Region</type>
+			<SuperType>enumeration</SuperType> 
+			<tensorRank>scalar</tensorRank>
+			<description>index region name.</description>
+		  </Parameter>
+		  <Parameter name='Revised' exampleValue='TRUE'>
+			<type>bool</type>
+			<tensorRank>scalar</tensorRank>
+			<description>revised inflation index.</description>
+		  </Parameter>
+			<Parameter name='Frequency' exampleValue='Monthly'>
+				<type>QuantLib::Frequency</type>
+				<tensorRank>scalar</tensorRank>
+				<description>frequency of inflation updates.</description>
+			</Parameter>
+			<Parameter name='AvailabilitiyLag' exampleValue='3M'>
+            <type>QuantLib::Period</type>
+            <tensorRank>scalar</tensorRank>
+            <description>availability lag.</description>
+          </Parameter>
+          <Parameter name='Currency' exampleValue='EUR'>
+            <type>QuantLib::Currency</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Index Currency.</description>
+          </Parameter>
+		  <Parameter name='InflationCurve' exampleValue='EURYC6M' default='""'>
+			<type>QuantLib::ZeroInflationTermStructure</type>
+			<superType>libToHandle</superType>
+			<tensorRank>scalar</tensorRank>
+			<description>inflation term structure ID.</description>
+		  </Parameter>
+		</Parameters>
+      </ParameterList>
+    </Constructor>
+
+
+   <Member name='qlZeroInflationIndexLastFixingDate' type='QuantLib::ZeroInflationIndex'>
+      <description>Returns the base date, i.e. the last published fixing date.</description>
+      <libraryFunction>lastFixingDate</libraryFunction>
+      <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+      </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+			  </Parameters>
+		  </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::Date</type>
+        <tensorRank>scalar</tensorRank>
+      </ReturnValue>
+    </Member>
+
+
+	  <Constructor name='qleuhicp'>
+		  <libraryFunction>euhicp</libraryFunction>
+		  <SupportedPlatforms>
+			  <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+			  <SupportedPlatform name='Excel'/>
+			  <SupportedPlatform name='Calc'/>
+			  <SupportedPlatform name='Cpp'/>
+		  </SupportedPlatforms>
+		  <processorName>IndexProcessor</processorName>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='FamilyName' exampleValue='EURHICP'>
+					  <type>string</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>index family name.</description>
+				  </Parameter>
+				  <Parameter name='InflationCurve' default='""'>
+					  <type>QuantLib::ZeroInflationTermStructure</type>
+					  <superType>libToHandle</superType>
+					  <tensorRank>scalar</tensorRank>
+					  <description>inflation term structure ID.</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+	  </Constructor>
+
+
+
+	  <Procedure name='qlCPIlaggedFixing'>
+		  <description>Returns the interpolated fixing.</description>
+		  <alias>QuantLib::CPI::laggedFixing</alias>
+		  <!-->Member name='qlCPIlaggedFixing' type='QuantLib::CPI'>
+		  <description>Returns the interpolated fixing.</description-->
+		  <libraryFunction>laggedFixing</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='Index'>
+					  <type>QuantLib::ZeroInflationIndex</type>
+					  <superType>libraryClass</superType>
+					  <tensorRank>scalar</tensorRank>
+					  <description>zero inflation index object ID.</description>
+				  </Parameter>
+				  <Parameter name='MaturityDate'>
+					  <type>QuantLib::Date</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>maturity date of the zero coupon inflation swap.</description>
+				  </Parameter>
+				  <Parameter name='ObsLag' exampleValue='3M'>
+					  <type>QuantLib::Period</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>Observation Lag (e.g. 3M).</description>
+				  </Parameter>
+				  <Parameter name='ObsInterpolation'>
+					  <type>QuantLib::CPI::InterpolationType</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>observation interpolation type.</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>QuantLib::Real</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+		  <!--/Member-->
+	  </Procedure>
+
+
+
+  </Functions>
+</Category>

@@ -1,0 +1,75 @@
+<Category name='seasonality'>
+  <description>seasonality objects.</description>
+  <displayName>Seasonailities</displayName>
+  <xlFunctionWizardCategory>QuantLib - Financial</xlFunctionWizardCategory>
+	<serializationIncludes>
+		<include>qlo/seasonality.hpp</include>
+		<include>ql/termstructures/inflation/seasonality.hpp</include>
+	</serializationIncludes>
+  <addinIncludes>
+	  <include>qlo/seasonality.hpp</include>
+	  <include>ql/termstructures/inflation/seasonality.hpp</include>
+  </addinIncludes>
+  <copyright>
+        Copyright (C) 2024 Andre Miemiec
+  </copyright>
+  <Functions>
+
+
+	  <Constructor name='qlMultiPriceSeasonality'>
+		  <libraryFunction>MultiplicativePriceSeasonality</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+			  <SupportedPlatform name='Calc'/>
+			  <SupportedPlatform name='Cpp'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='BaseDate'>
+					  <type>QuantLib::Date</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>the base date</description>
+				  </Parameter>
+				  <Parameter name='Frequency'>
+					  <type>QuantLib::Frequency</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>frequency</description>
+				  </Parameter>
+				  <Parameter name='Factors'>
+					  <type>QuantLib::Rate</type>
+					  <tensorRank>vector</tensorRank>
+					  <description>12 consecutive monthly seasonality factors.</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+	  </Constructor>
+
+
+
+	  <Constructor name='qlKerkhofSeasonality'>
+      <libraryFunction>KerkhofSeasonality</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <SupportedPlatform name='Cpp'/>
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters>
+	      <Parameter name='BaseDate'>
+            <type>QuantLib::Date</type>
+            <tensorRank>scalar</tensorRank>
+            <description>the base date</description>
+          </Parameter>
+          <Parameter name='Factors'>
+            <type>QuantLib::Rate</type>
+            <tensorRank>vector</tensorRank>
+            <description>12 consecutive monthly seasonality factors.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+
+  </Functions>
+</Category>

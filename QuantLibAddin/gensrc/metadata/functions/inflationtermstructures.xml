@@ -1,0 +1,254 @@
+<Category name='inflationtermstructures'>
+  <description>functions to construct and use InflationTermStructure objects.</description>
+  <displayName>Inflation Term Structures</displayName>
+  <xlFunctionWizardCategory>QuantLib - Financial</xlFunctionWizardCategory>
+  <serializationIncludes>
+    <include>qlo/conversions/coercetermstructure.hpp</include>
+	<include>qlo/inflationtermstructures.hpp</include>
+	<include>qlo/seasonality.hpp</include>
+	<include>qlo/inflationhelpers.hpp</include>
+
+	<include>ql/termstructures/inflation/interpolatedzeroinflationcurve.hpp</include>
+	<include>ql/termstructures/inflation/seasonality.hpp</include>
+
+  </serializationIncludes>
+  <addinIncludes>
+    <include>qlo/handleimpl.hpp</include>
+    <include>qlo/conversions/coercetermstructure.hpp</include>
+	<include>qlo/inflationtermstructures.hpp</include>
+	<include>qlo/seasonality.hpp</include>
+	<include>qlo/inflationhelpers.hpp</include>
+
+	<include>ql/termstructures/inflation/interpolatedzeroinflationcurve.hpp</include>
+	<include>ql/termstructures/inflation/seasonality.hpp</include>
+
+  </addinIncludes>
+  <copyright>
+    Copyright (C) 2024 Andre Miemiec
+  </copyright>
+  <Functions>
+
+
+
+
+		  <Member name='qlInflationTermStructureSetSeasonality' type='QuantLib::InflationTermStructure' superType='libraryTermStructure'>
+			  <description>Assigns a seaosonality object to a given InflationTerStructure object.</description>
+			  <libraryFunction>setSeasonality</libraryFunction>
+			  <SupportedPlatforms>
+				  <SupportedPlatform name='Excel'/>
+			  </SupportedPlatforms>
+			  <ParameterList>
+				  <Parameters>
+					  <Parameter name='SeasonalityID' default='""'>
+						  <type>QuantLib::Seasonality</type>
+						  <superType>libraryClass</superType>
+						  <tensorRank>scalar</tensorRank>
+						  <description>Seasonality object</description>
+					  </Parameter>
+				  </Parameters>
+			  </ParameterList>
+			  <ReturnValue>
+				  <type>void</type>
+				  <tensorRank>scalar</tensorRank>
+			  </ReturnValue>
+		  </Member>
+
+
+
+		  <Member name='qlInflationTermStructureBaseDate' type='QuantLib::InflationTermStructure' superType='libraryTermStructure'>
+		  <description>Returns the base date of a given InflationTerStructure object.</description>
+		  <libraryFunction>baseDate</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+			  </Parameters>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>QuantLib::Date</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+	  </Member>
+
+	  <Member name='qlInflationTermStructureBaseRate' type='QuantLib::InflationTermStructure' superType='libraryTermStructure'>
+		  <description>Returns the base rate of a given InflationTerStructure object.</description>
+		  <libraryFunction>baseRate</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+			  </Parameters>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>QuantLib::Rate</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+	  </Member>
+
+	  <Member name='qlInflationTermStructureFrequency' type='QuantLib::InflationTermStructure' superType='libraryTermStructure'>
+		  <description>Returns the frequency of a given InflationTerStructure object.</description>
+		  <libraryFunction>frequency</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+			  </Parameters>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>QuantLib::Frequency</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+	  </Member>
+
+	  <Member name='qlInflationTermStructureObservationLag' type='QuantLib::InflationTermStructure' superType='libraryTermStructure'>
+		  <description>Returns the observation lag of a given InflationTerStructure object.</description>
+		  <libraryFunction>observationLag</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+			  </Parameters>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>QuantLib::Period</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+	  </Member>
+	  
+	  
+
+
+	  <Member name='qlZeroInflationCurveZeroRate' type='QuantLib::ZeroInflationTermStructure' superType='libraryTermStructure'>
+		  <description>Returns the break even rates of Zero Inflation Swaps for the given InterpolatedZeroInflationCurve.</description>
+		  <libraryFunction>zeroRate</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='Date'>
+					  <type>QuantLib::Date</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>a date</description>
+				  </Parameter>
+				  <Parameter name='InstObsLag' exampleValue  ='-1D'>
+					  <type>QuantLib::Period</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>the instrument specific observation lag</description>
+				  </Parameter>
+				  <Parameter name='ForceLinearInterpol' default='false'>
+					  <type>bool</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>forces linear interpolation between neighbouring quotes</description>
+				  </Parameter>
+				  <Parameter name='Extrapolate' default ='false'>
+					  <type>bool</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>extrapolation allowed</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>QuantLib::Rate</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+	  </Member>
+
+
+
+
+	  <Constructor name='qlInterpolatedZeroInflationCurve'>
+        <libraryFunction>InterpolatedZeroInflationCurve</libraryFunction>
+	    <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <SupportedPlatform name='Cpp'/>
+        </SupportedPlatforms>
+        <ParameterList>
+		    <Parameters>
+		    <Parameter name='ReferenceDate'>
+			    <type>QuantLib::Date</type>
+			    <tensorRank>scalar</tensorRank>
+			    <description>reference date</description>
+		    </Parameter>
+		    <Parameter name='Dates' exampleValue ='0D,1M,3M,6M,1Y,2Y,3Y,5Y,10Y'>
+                <type>QuantLib::Date</type>
+                <tensorRank>vector</tensorRank>
+                <description>vector of dates, the first one being the one at which discount factor = 1.0</description>
+            </Parameter>
+		    <Parameter name='Rates' exampleValue ='1.0,0.99,0.96,0.94,0.9,0.8,0.7,0.6,0.4'>
+                <type>QuantLib::Rate</type>
+                <tensorRank>vector</tensorRank>
+                <description>inflation rate vector.</description>
+            </Parameter>
+		    <Parameter name='Frequency'>
+                <type>QuantLib::Frequency</type>
+                <tensorRank>scalar</tensorRank>
+                <description>frequency (e.g. Monthly).</description>
+            </Parameter>
+		    <Parameter name='DayCounter' default='"Actual/365 (Fixed)"'>
+                <type>QuantLib::DayCounter</type>
+                <tensorRank>scalar</tensorRank>
+                <description>DayCounter ID.</description>
+            </Parameter>
+		    <Parameter name='TraitsID' default='"Zero"'>
+                <type>string</type>
+                <tensorRank>scalar</tensorRank>
+                <description>Zero or YoY.</description>
+            </Parameter>
+	        <Parameter name='InterpolatorID' default='"Linear"'>
+                <type>string</type>
+                <tensorRank>scalar</tensorRank>
+                <description>BackwardFlat, ForwardFlat, Linear, LogLinear, etc.</description>
+            </Parameter>
+	        <Parameter name='SeasonalityID' default='""'>
+			    <type>QuantLib::Seasonality</type>
+			    <superType>libraryClass</superType>
+			    <tensorRank>scalar</tensorRank>
+			    <description>Seasonality object</description>
+		    </Parameter>
+	    </Parameters>
+        </ParameterList>
+    </Constructor>
+
+
+
+	  <!--Member name='qlInterpolatedZeroInflationCurveDates' type='QuantLib::ZeroInflationCurve' superType='libraryClass'>
+      <description>Retrieve list of Dates for the given InterpolatedZeroInflationCurve.</description>
+      <libraryFunction>dates</libraryFunction>
+      <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters>
+        </Parameters>
+      </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::Date</type>
+        <tensorRank>vector</tensorRank>
+      </ReturnValue>
+    </Member-->
+
+	  <!-->Member name='qlInterpolatedZeroInflationCurveData' type='QuantLibAddin::InterpolatedYieldCurve' superType='objectClass'>
+      <description>Retrieve Data for the given InterpolatedZeroInflationCurve.</description>
+      <libraryFunction>data</libraryFunction>
+      <SupportedPlatforms>
+        <SupportedPlatform name='Excel'/>
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters>
+        </Parameters>
+      </ParameterList>
+      <ReturnValue>
+        <type>QuantLib::Real</type>
+        <tensorRank>vector</tensorRank>
+      </ReturnValue>
+    </Member-->
+
+
+  </Functions>
+</Category>

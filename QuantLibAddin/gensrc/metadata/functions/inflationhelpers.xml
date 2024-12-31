@@ -1,0 +1,89 @@
+<Category name='inflationhelpers'>
+  <description>functions to construct and inflation helper objects.</description>
+  <displayName>InflationHelper</displayName>
+  <xlFunctionWizardCategory>QuantLib - Financial</xlFunctionWizardCategory>
+  <serializationIncludes>
+    <include>qlo/inflationhelpers.hpp</include>
+    <include>qlo/inflationindex.hpp</include>
+    <include>qlo/inflationtermstructures.hpp</include>
+
+    <include>ql/indexes/inflationindex.hpp</include>
+    <include>ql/termstructures/inflationtermstructure.hpp</include>
+  </serializationIncludes>
+  <addinIncludes>
+	  <include>qlo/inflationhelpers.hpp</include>
+	  <include>qlo/inflationindex.hpp</include>
+	  <include>qlo/inflationtermstructures.hpp</include>
+
+	  <include>ql/indexes/inflationindex.hpp</include>
+	  <include>ql/termstructures/inflationtermstructure.hpp</include>
+  </addinIncludes>
+  <copyright>
+    Copyright (C) 2024 Andre Miemiec
+  </copyright>
+  <Functions>
+
+    <Constructor name='qlZeroCouponInflationSwapHelper'>
+      <libraryFunction>ZeroCouponInflationSwapHelper</libraryFunction>
+      <SupportedPlatforms>
+        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+        <SupportedPlatform name='Excel'/>
+        <SupportedPlatform name='Calc'/>
+        <SupportedPlatform name='Cpp'/>
+      </SupportedPlatforms>
+      <ParameterList>
+        <Parameters>
+          <Parameter name='Quote' exampleValue='0.02'>
+            <type>QuantLib::Quote</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>break even rate of zero coupon inflation swap.</description>
+          </Parameter>
+          <Parameter name='ObsLag' exampleValue='3M'>
+            <type>QuantLib::Period</type>
+            <tensorRank>scalar</tensorRank>
+            <description>Observation Lag (e.g. 3M).</description>
+          </Parameter>
+          <Parameter name='MaturityDate'>
+            <type>QuantLib::Date</type>
+            <tensorRank>scalar</tensorRank>
+            <description>maturity date of the zero coupon inflation swap.</description>
+          </Parameter>
+          <Parameter name='Calendar' exampleValue='TARGET'>
+	        <type>QuantLib::Calendar</type>
+	        <tensorRank>scalar</tensorRank>
+	        <description>holiday calendar (e.g. TARGET).</description>
+          </Parameter>
+          <Parameter name='Convention' exampleValue='Modified Following'>
+	        <type>QuantLib::BusinessDayConvention</type>
+	        <tensorRank>scalar</tensorRank>
+	        <description>business day convention (e.g. Modified Following).</description>
+          </Parameter>
+          <Parameter name='DayCounter' exampleValue='Act/365 (Fixed)'>
+	        <type>QuantLib::DayCounter</type>
+	        <tensorRank>scalar</tensorRank>
+	        <description>day count convention (e.g. Act/365 (Fixed).</description>
+          </Parameter>
+          <Parameter name='ZeroInflationIndex'>
+	        <type>QuantLib::ZeroInflationIndex</type>
+	        <tensorRank>scalar</tensorRank>
+	        <description>zero inflation index object ID.</description>
+          </Parameter>
+          <Parameter name='ObsInterpolation'>
+	        <type>QuantLib::CPI::InterpolationType</type>
+	        <tensorRank>scalar</tensorRank>
+	        <description>observation interpolation type.</description>
+          </Parameter>
+          <Parameter name='NominalCurve' exampleValue='EURON'>
+            <type>QuantLib::YieldTermStructure</type>
+            <superType>libToHandle</superType>
+            <tensorRank>scalar</tensorRank>
+            <description>nominal YieldTermStructure object ID.</description>
+          </Parameter>
+        </Parameters>
+      </ParameterList>
+    </Constructor>
+
+
+  </Functions>
+</Category>
