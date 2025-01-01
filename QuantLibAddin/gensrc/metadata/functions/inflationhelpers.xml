@@ -84,6 +84,24 @@
       </ParameterList>
     </Constructor>
 
+	<Constructor name='qlZeroCouponInflationSwapFromRateHelper'>
+        <libraryFunction>ZeroCouponInflationSwap</libraryFunction>
+        <SupportedPlatforms>
+	        <!--SupportedPlatform name='Excel' calcInWizard='false'/-->
+	        <SupportedPlatform name='Excel'/>
+	        <SupportedPlatform name='Cpp'/>
+        </SupportedPlatforms>
+        <ParameterList>
+	        <Parameters>
+		        <Parameter name='ZeroCouponInflationSwapRateHelper'>
+			        <type>QuantLib::ZeroCouponInflationSwapHelper</type>
+			        <tensorRank>scalar</tensorRank>
+			        <description>Zero Coupon Inflation Swap RateHelper object ID.</description>
+		        </Parameter>
+	        </Parameters>
+        </ParameterList>
+	</Constructor>
+
 
   </Functions>
 </Category>
