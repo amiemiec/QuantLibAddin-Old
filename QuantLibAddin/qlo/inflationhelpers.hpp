@@ -28,6 +28,12 @@
 #include <ql/indexes/inflationindex.hpp>
 #include <qlo/inflationtermstructures.hpp>
 
+
+//AMI++
+#include <qlo/swap.hpp>
+#include <ql/termstructures/inflation/inflationhelpers.hpp>
+//++AMI
+
 namespace QuantLib {
 
     class InflationTermStructure;
@@ -84,6 +90,16 @@ namespace QuantLibAddin {
         QuantLib::Handle<QuantLib::YieldTermStructure> nominalTermStructure,
         bool permanent);
     };
+
+
+    class ZeroCouponInflationSwap : public Swap {
+    public:
+        ZeroCouponInflationSwap(
+            const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+            const boost::shared_ptr<QuantLib::ZeroCouponInflationSwapHelper>& swapRH,
+            bool permanent);
+    };
+
 }
 
 #endif

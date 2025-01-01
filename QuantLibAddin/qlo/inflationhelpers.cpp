@@ -55,5 +55,13 @@ namespace QuantLibAddin {
         
     }
 
+    ZeroCouponInflationSwap::ZeroCouponInflationSwap(
+        const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+        const boost::shared_ptr<QuantLib::ZeroCouponInflationSwapHelper>& swapRH,
+        bool permanent) : Swap(properties, permanent)
+    {
+        libraryObject_ = swapRH->swap();
+    }
+
 
 }
