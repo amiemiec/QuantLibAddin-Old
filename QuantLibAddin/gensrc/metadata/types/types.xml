@@ -223,6 +223,8 @@
 		<DataType defaultSuperType='libraryClass'>QuantLib::DefaultEventSet</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::ZeroInflationIndex</DataType>
 		<DataType defaultSuperType='libraryClass'>QuantLib::ZeroInflationTermStructure</DataType>
+		<DataType defaultSuperType='libraryClass'>QuantLib::ZeroCouponInflationSwap</DataType>
+		<DataType defaultSuperType='libraryClass'>QuantLib::ZeroCouponInflationSwapHelper</DataType>
 		<DataType defaultSuperType='enumeration'>QuantLib::Seniority</DataType>
 
 		<!--AMI ADD 20241123-->
