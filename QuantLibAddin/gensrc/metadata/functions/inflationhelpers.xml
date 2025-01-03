@@ -39,13 +39,18 @@
             <tensorRank>scalar</tensorRank>
             <description>break even rate of zero coupon inflation swap.</description>
           </Parameter>
-          <Parameter name='ObsLag' exampleValue='3M'>
+			<Parameter name='Spot' exampleValue='2'>
+				<type>QuantLib::Natural</type>
+				<tensorRank>scalar</tensorRank>
+				<description>Spot Lag (e.g. 2).</description>
+			</Parameter>
+			<Parameter name='ObsLag' exampleValue='3M'>
             <type>QuantLib::Period</type>
             <tensorRank>scalar</tensorRank>
             <description>Observation Lag (e.g. 3M).</description>
           </Parameter>
-          <Parameter name='MaturityDate'>
-            <type>QuantLib::Date</type>
+          <Parameter name='SwapTerm'>
+            <type>QuantLib::Period</type>
             <tensorRank>scalar</tensorRank>
             <description>maturity date of the zero coupon inflation swap.</description>
           </Parameter>

@@ -54,7 +54,7 @@
 	    <tensorRank>scalar</tensorRank>
 	    <description>frequency</description>
         </Parameter>
-		<Parameter name='DayCounter' default='"Actual/365 (Fixed)"'>
+		<Parameter name='DayCounter' default='"30/360 (Bond Basis)"'>
 		<type>QuantLib::DayCounter</type>
 		<tensorRank>scalar</tensorRank>
 		<description>DayCounter ID.</description>
@@ -69,10 +69,10 @@
 			<tensorRank>scalar</tensorRank>
 			<description>Discount, ZeroYield, or ForwardRate.</description>
 		</Parameter-->
-		<Parameter name='InterpolatorID' default='"Linear"'>
+		<Parameter name='InterpolatorID' default='"ForwardFlat"'>
 			<type>string</type>
 			<tensorRank>scalar</tensorRank>
-			<description>BackwardFlat, ForwardFlat, Linear, LogLinear.</description>
+			<description>ForwardFlat, BackwardFlat, Linear, LogLinear.</description>
 		</Parameter>
 		</Parameters>
 	</ParameterList>

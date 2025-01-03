@@ -80,8 +80,9 @@ namespace QuantLibAddin {
         ZeroCouponInflationSwapHelper(
         const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
         const QuantLib::Handle<QuantLib::Quote>& quote,
+        const QuantLib::Natural spot, 
         const QuantLib::Period& swapObsLag, // lag on swap observation of index
-        const QuantLib::Date& maturity,
+        const QuantLib::Period& swapTerm,
         QuantLib::Calendar calendar, // index may have null calendar as valid on every day
         QuantLib::BusinessDayConvention paymentConvention,
         QuantLib::DayCounter dayCounter,
