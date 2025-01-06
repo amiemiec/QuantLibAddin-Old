@@ -16,7 +16,7 @@
   <Functions>
 
 
-	  <Constructor name='qlMultiPriceSeasonality'>
+	  <Constructor name='qlMultiplicativePriceSeasonality'>
 		  <libraryFunction>MultiplicativePriceSeasonality</libraryFunction>
 		  <SupportedPlatforms>
 			  <SupportedPlatform name='Excel'/>
@@ -25,11 +25,11 @@
 		  </SupportedPlatforms>
 		  <ParameterList>
 			  <Parameters>
-				  <Parameter name='BaseDate'>
+				  <!--Parameter name='BaseDate'>
 					  <type>QuantLib::Date</type>
 					  <tensorRank>scalar</tensorRank>
 					  <description>the base date</description>
-				  </Parameter>
+				  </Parameter-->
 				  <Parameter name='Frequency'>
 					  <type>QuantLib::Frequency</type>
 					  <tensorRank>scalar</tensorRank>
@@ -46,6 +46,30 @@
 
 
 
+	  <Member name='qlSeasonalityFactor' type='QuantLib::MultiplicativePriceSeasonality'>
+		  <description>returns the cumulated seasonality factors from the MultiplicativePriceSeasonality object.</description>
+		  <libraryFunction>seasonalityFactor</libraryFunction>
+		  <SupportedPlatforms>
+			  <SupportedPlatform name='Excel'/>
+			  <SupportedPlatform name='Calc'/>
+			  <!--SupportedPlatform name='Cpp'/-->
+		  </SupportedPlatforms>
+		  <ParameterList>
+			  <Parameters>
+				  <Parameter name='Date'>
+					  <type>QuantLib::Date</type>
+					  <tensorRank>scalar</tensorRank>
+					  <description>a date</description>
+				  </Parameter>
+			  </Parameters>
+		  </ParameterList>
+		  <ReturnValue>
+			  <type>QuantLib::Real</type>
+			  <tensorRank>scalar</tensorRank>
+		  </ReturnValue>
+	  </Member>
+
+	  
 	  <Constructor name='qlKerkhofSeasonality'>
       <libraryFunction>KerkhofSeasonality</libraryFunction>
       <SupportedPlatforms>

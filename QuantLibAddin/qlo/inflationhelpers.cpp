@@ -40,7 +40,7 @@ namespace QuantLibAddin {
         QuantLib::Handle<QuantLib::YieldTermStructure> nominalTermStructure,
         bool permanent) : InflationZeroHelper(properties, permanent) 
     {
-        QL_FAIL(!(observationInterpolation == QuantLib::CPI::Flat), "Not validated");
+        //QL_FAIL(!(observationInterpolation == QuantLib::CPI::Flat), "Not validated");
         
         libraryObject_ = boost::shared_ptr<QuantLib::InflationZeroHelper>(new
             QuantLib::ZeroCouponInflationSwapHelper(

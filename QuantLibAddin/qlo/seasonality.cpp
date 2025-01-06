@@ -39,13 +39,13 @@ namespace QuantLibAddin {
 
     MultiplicativePriceSeasonality::MultiplicativePriceSeasonality(
             const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
-            const QuantLib::Date& seasonalityBaseDate,
+            /*const QuantLib::Date& seasonalityBaseDate,*/
             QuantLib::Frequency frequency,
             const std::vector<QuantLib::Rate>& seasonalityFactors,
             bool permanent) : Seasonality(properties, permanent)
     {
         libraryObject_ = boost::shared_ptr<QuantLib::Seasonality>(new
-            QuantLib::MultiplicativePriceSeasonality(seasonalityBaseDate, frequency, seasonalityFactors));
+            QuantLib::MultiplicativePriceSeasonality(/*seasonalityBaseDate,*/ frequency, seasonalityFactors));
     };
 
     
